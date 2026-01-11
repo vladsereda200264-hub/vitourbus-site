@@ -333,11 +333,48 @@
     }
 
     @media (max-width: 768px){
-      header .wrap{ grid-template-columns: 1fr; grid-template-areas: "logo" "contacts" "nav" "utils"; row-gap: 8px; }
-      .header-right{ display:block; }
-      .contact-row{ justify-self: start; flex-wrap: wrap; white-space: normal; gap:8px; }
-      nav[role="navigation"]{ flex-wrap: wrap; gap:8px; }
-      .utils{ justify-self:start; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+      /* FIXED header on mobile (does not move while scrolling) */
+      header{
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 1200;
+      }
+      body{
+        padding-top: 92px; /* height of mobile header */
+      }
+
+      /* Mobile header: compact */
+      header .wrap{
+        grid-template-columns: 1fr;
+        grid-template-areas: "logo" "utils" "contacts" "nav";
+        row-gap: 8px;
+        padding: 10px 0;
+      }
+      .logo-text h1{ font-size: 22px; line-height: 1.05; }
+      .logo-text span{ font-size: 12px; }
+
+      /* Keep controls on one compact row */
+      .utils{ justify-self: start; width: 100%; gap: 10px; flex-wrap: nowrap; }
+      .language-switch{ flex: 1; }
+      .language-switch button{ min-height: 38px; padding: 7px 10px; }
+      #themeToggle{ width: 40px; height: 40px; min-height: 40px; }
+
+      /* Contacts become compact, less tall */
+      .contact-row{
+        justify-self: start;
+        flex-wrap: wrap;
+        white-space: normal;
+        gap: 8px;
+      }
+      .phone, .tg-btn, .ig-btn{
+        min-height: 38px;
+        padding: 8px 12px 8px 38px;
+      }
+      .phone::before, .tg-btn::before, .ig-btn::before{ left: 10px; width: 16px; height: 16px; }
+
+      nav[role="navigation"]{ flex-wrap: wrap; gap: 8px; justify-content: flex-start; }
+      nav[role="navigation"] a{ padding: 8px 10px; }
+
       .section .container{ padding:16px; border-radius:12px; }
       table{ display:block; overflow-x:auto; -webkit-overflow-scrolling: touch; }
       th, td{ padding:12px; }
