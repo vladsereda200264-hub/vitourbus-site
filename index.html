@@ -333,15 +333,17 @@
     }
 
     @media (max-width: 768px){
-      /* FIXED header on mobile (does not move while scrolling) */
+      /* Mobile smart header: fixed + auto-hide on scroll */
       header{
         position: fixed;
         top: 0; left: 0; right: 0;
         z-index: 1200;
+        transform: translateY(0);
+        transition: transform .22s ease;
+        will-change: transform;
       }
-      body{
-        padding-top: 92px; /* height of mobile header */
-      }
+      header.is-hidden{ transform: translateY(-110%); }
+      body{ padding-top: 92px; /* height of mobile header */ }
 
       /* Mobile header: compact */
       header .wrap{
