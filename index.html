@@ -49,8 +49,9 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 14px 8px 40px;
+      padding: 7px 12px 7px 34px;
       font-weight: 800;
+      font-size: 14px;
       color:#fff;
       text-decoration:none;
       border:1px solid var(--btn-border);
@@ -59,7 +60,8 @@
       box-shadow: var(--btn-shadow);
       backdrop-filter: blur(6px);
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
-      min-height: 40px;
+      min-height: 36px;
+      max-width: 100%;
     }
     .phone:hover, .phone:focus-visible{
       transform: translateY(-1px);
@@ -71,8 +73,8 @@
     .phone::before{
       content:"";
       position:absolute;
-      left:10px; top:50%; transform:translateY(-50%);
-      width:18px; height:18px;
+      left:9px; top:50%; transform:translateY(-50%);
+      width:16px; height:16px;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,.25));
       background: no-repeat center/contain url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.2z"/></svg>');
     }
@@ -86,8 +88,9 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 14px 8px 40px;
+      padding: 7px 12px 7px 34px;
       font-weight: 700;
+      font-size: 14px;
       color:#fff;
       text-decoration:none;
       border:1px solid var(--btn-border);
@@ -96,7 +99,8 @@
       box-shadow: var(--btn-shadow);
       backdrop-filter: blur(6px);
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
-      min-height: 40px;
+      min-height: 36px;
+      max-width: 100%;
     }
     .tg-btn:hover, .tg-btn:focus-visible,
     .ig-btn:hover, .ig-btn:focus-visible{
@@ -119,8 +123,8 @@
     .tg-btn::before, .ig-btn::before{
       content:"";
       position:absolute;
-      left:10px; top:50%; transform:translateY(-50%);
-      width:18px; height:18px;
+      left:9px; top:50%; transform:translateY(-50%);
+      width:16px; height:16px;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,.25));
     }
     .tg-btn::before{ background: no-repeat center/contain url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M9.04 15.34 8.9 18.2a1 1 0 0 0 1.6.84l2.29-1.64 3.97 2.9a1 1 0 0 0 1.56-.6l3.11-13.26a1 1 0 0 0-1.36-1.16L2.3 11.1a1 1 0 0 0 .06 1.88l5.54 1.95 9.89-6.2-8.75 6.61Z"/></svg>'); }
@@ -279,7 +283,7 @@
     #fleet td:hover .car-img,
     #fleet .car-img:hover{ transform: translateX(0); }
 
-    .contact-row{grid-area: contacts; display:flex; align-items:center; gap:10px; flex-wrap:nowrap; white-space:nowrap; justify-self:end}
+    .contact-row{grid-area: contacts; display:flex; align-items:center; gap:8px; flex-wrap:wrap; white-space:normal; justify-self:end}
     nav[role="navigation"]{grid-area: nav; display:flex; align-items:center; gap:10px; flex-wrap:nowrap; justify-self:start; justify-content:flex-start; overflow:visible; }
     .utils{grid-area: utils; justify-self:end; display:flex; gap:12px; align-items:center}
 
@@ -343,41 +347,37 @@
         will-change: transform;
       }
       header.is-hidden{ transform: translateY(-110%); }
-      body{ padding-top: 92px; /* height of mobile header */ }
+      body{ padding-top: 76px; /* smaller mobile header */ }
 
-      /* Mobile header: compact */
+      /* EXTRA compact mobile header */
       header .wrap{
         grid-template-columns: 1fr;
-        grid-template-areas: "logo" "utils" "contacts" "nav";
-        row-gap: 8px;
-        padding: 10px 0;
+        grid-template-areas: "logo utils" "contacts";
+        row-gap: 6px;
+        padding: 6px 0;
       }
-      .logo-text h1{ font-size: 22px; line-height: 1.05; }
-      .logo-text span{ font-size: 12px; }
+      .logo-text h1{ font-size: 20px; line-height: 1; }
+      .logo-text span{ font-size: 11px; }
 
-      /* Keep controls on one compact row */
-      .utils{ justify-self: start; width: 100%; gap: 10px; flex-wrap: nowrap; }
-      .language-switch{ flex: 1; }
-      .language-switch button{ min-height: 38px; padding: 7px 10px; }
-      #themeToggle{ width: 40px; height: 40px; min-height: 40px; }
+      .utils{ justify-self:end; gap:6px; }
+      .language-switch{ transform: scale(.9); }
+      #themeToggle{ width: 36px; height: 36px; min-height: 36px; }
 
-      /* Contacts become compact, less tall */
       .contact-row{
         justify-self: start;
         flex-wrap: wrap;
-        white-space: normal;
-        gap: 8px;
+        gap: 6px;
       }
       .phone, .tg-btn, .ig-btn{
-        min-height: 38px;
-        padding: 8px 12px 8px 38px;
+        min-height: 34px;
+        padding: 6px 10px 6px 34px;
+        font-size: 14px;
       }
-      .phone::before, .tg-btn::before, .ig-btn::before{ left: 10px; width: 16px; height: 16px; }
+      .phone::before, .tg-btn::before, .ig-btn::before{ width: 14px; height: 14px; left: 10px; }
 
-      nav[role="navigation"]{ flex-wrap: wrap; gap: 8px; justify-content: flex-start; }
-      nav[role="navigation"] a{ padding: 8px 10px; }
+      nav[role="navigation"]{ display:none; } /* hide nav on mobile to save space */
 
-      .section .container{ padding:16px; border-radius:12px; }
+      .section .container{ padding:14px; border-radius:12px; }
       table{ display:block; overflow-x:auto; -webkit-overflow-scrolling: touch; }
       th, td{ padding:12px; }
     }
@@ -515,7 +515,18 @@
       <a href="#top" class="logo-text" aria-label="На главную viTour.bus"><h1>viTour.bus</h1><span data-i18n="subtitle">Пассажирские перевозки • Трансферы</span></a>
       <div class="header-right">
         <div class="contact-row">
-          <a class="phone" href="tel:+380933142885" aria-label="Позвонить +38 093 314 28 85" data-scroll-to="#booking">+38&nbsp;093&nbsp;314&nbsp;28&nbsp;85</a>
+          <a class="phone" href="tel:+380933142885" aria-label="Позвонить Украина +38 093 314 28 85" data-scroll-to="#booking">
+            <span class="flag" aria-hidden="true">🇺🇦</span>
+            +38&nbsp;093&nbsp;314&nbsp;28&nbsp;85
+          </a>
+          <a class="phone" href="tel:+380987020220" aria-label="Позвонить Украина +38 098 702 02 20" data-scroll-to="#booking">
+            <span class="flag" aria-hidden="true">🇺🇦</span>
+            +38&nbsp;098&nbsp;702&nbsp;02&nbsp;20
+          </a>
+          <a class="phone" href="tel:+37360577130" aria-label="Позвонить Молдова +373 605 77 130" data-scroll-to="#booking">
+            <span class="flag" aria-hidden="true">🇲🇩</span>
+            +373&nbsp;605&nbsp;77&nbsp;130
+          </a>
           <a class="tg-btn" href="https://t.me/seredaa_v" target="_blank" rel="noopener" aria-label="Открыть Telegram: @seredaa_v" data-i18n="tg.button">Написать в Telegram</a>
           <a class="ig-btn" href="https://instagram.com/vitour.bus" target="_blank" rel="noopener" aria-label="Открыть Instagram: @vitour.bus" data-i18n="ig.button">Instagram</a>
         </div>
