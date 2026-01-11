@@ -32,15 +32,17 @@
     header .container{ max-width: 980px; }
 
     header { background-color: var(--brand); color: #fff; position: sticky; top: 0; z-index: 1000; box-shadow:0 2px 6px rgba(0,0,0,.2); border-bottom:3px solid var(--brand-dark); }
-    header .wrap { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "logo contacts" "nav utils"; align-items: center; row-gap: 0; padding: 16px 0; column-gap: 12px; }
+    header .wrap { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "logo contacts" "nav utils"; align-items: center; row-gap: 0; padding: 14px 0; column-gap: 12px; }
     .logo-text { text-decoration: none; color: #fff; transition: transform 0.3s ease; grid-area: logo; }
-    .logo-text:hover { transform: scale(1.05); }
-    .logo-text h1 { margin: 0; font-size: 26px; }
-    .logo-text span { font-size: 14px; display: block; opacity: .95; }
+    .logo-text:hover { transform: scale(1.03); }
+    .logo-text h1 { margin: 0; font-size: 25px; }
+    .logo-text span { font-size: 13px; display: block; opacity: .95; }
 
     .header-right{display:contents}
 
-    /* Phone button — match TG/IG pill style */
+    .flag{ display:inline-flex; align-items:center; justify-content:center; font-size: 16px; line-height: 1; margin-right: 6px; }
+
+    /* Phone button */
     .phone{
       --btn-bg: rgba(255,255,255,.15);
       --btn-border: rgba(255,255,255,.55);
@@ -48,8 +50,8 @@
       position: relative;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 7px 12px 7px 34px;
+      gap: 6px;
+      padding: 7px 10px 7px 32px;
       font-weight: 800;
       font-size: 14px;
       color:#fff;
@@ -60,7 +62,7 @@
       box-shadow: var(--btn-shadow);
       backdrop-filter: blur(6px);
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
-      min-height: 36px;
+      min-height: 34px;
       max-width: 100%;
     }
     .phone:hover, .phone:focus-visible{
@@ -79,7 +81,7 @@
       background: no-repeat center/contain url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.2z"/></svg>');
     }
 
-    /* Social buttons – modern pill style */
+    /* Social buttons */
     .tg-btn, .ig-btn{
       --btn-bg: rgba(255,255,255,.15);
       --btn-border: rgba(255,255,255,.55);
@@ -87,8 +89,8 @@
       position: relative;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 7px 12px 7px 34px;
+      gap: 6px;
+      padding: 7px 10px 7px 32px;
       font-weight: 700;
       font-size: 14px;
       color:#fff;
@@ -99,7 +101,7 @@
       box-shadow: var(--btn-shadow);
       backdrop-filter: blur(6px);
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
-      min-height: 36px;
+      min-height: 34px;
       max-width: 100%;
     }
     .tg-btn:hover, .tg-btn:focus-visible,
@@ -108,13 +110,11 @@
       box-shadow: 0 10px 22px rgba(0,0,0,.28);
       outline: none;
     }
-    /* Telegram */
     .tg-btn{ --tg:#229ED9; }
     .tg-btn:hover, .tg-btn:focus-visible{
       background: linear-gradient(180deg, #2bb2ff, #229ED9);
       color:#fff;
     }
-    /* Instagram */
     .ig-btn{ --ig1:#f09433; --ig2:#e6683c; --ig3:#dc2743; --ig4:#cc2366; --ig5:#bc1888; }
     .ig-btn:hover, .ig-btn:focus-visible{
       background: linear-gradient(45deg, var(--ig1) 0%, var(--ig2) 25%, var(--ig3) 50%, var(--ig4) 75%, var(--ig5) 100%);
@@ -140,7 +140,7 @@
     #nav-booking:hover .bus, #nav-booking:focus-visible .bus { animation: driveBus 1.7s linear forwards; }
     @keyframes driveBus { 0%{left:-40px;opacity:1} 100%{left:100%;opacity:0} }
 
-    /* ===== Header controls (RU/UK + Theme) – modern segmented pills ===== */
+    /* Header controls */
     .utils{ gap: 10px; }
 
     .language-switch{
@@ -155,7 +155,6 @@
       overflow: hidden;
     }
 
-    /* Animated slider */
     .language-switch::after{
       content:"";
       position:absolute;
@@ -190,20 +189,11 @@
       min-height: 40px;
     }
     .language-switch button:hover,
-    .language-switch button:focus-visible{
-      color:#fff;
-      outline:none;
-    }
+    .language-switch button:focus-visible{ color:#fff; outline:none; }
     .language-switch button:active{ transform: scale(.98); }
 
-    /* Active state (disabled = current language) */
-    .language-switch button[disabled]{
-      cursor: default;
-      opacity: 1;
-      color: #003737;
-    }
+    .language-switch button[disabled]{ cursor: default; opacity: 1; color: #003737; }
 
-    /* Tiny labels */
     #btn-ru::before, #btn-uk::before{
       content:"";
       width: 16px; height: 16px;
@@ -215,7 +205,6 @@
     #btn-ru::before{ background: linear-gradient(180deg, #ffffff 0%, #dfe7ff 100%); }
     #btn-uk::before{ background: linear-gradient(180deg, #0057b7 0%, #ffd700 100%); }
 
-    /* Theme toggle – circular icon pill */
     #themeToggle{
       width: 44px; height: 44px;
       display:inline-flex;
@@ -240,12 +229,8 @@
     }
     #themeToggle:active{ transform: translateY(0) scale(.98); }
 
-    /* Dark mode header controls tweak */
     .dark-mode .language-switch,
-    .dark-mode #themeToggle{
-      background: rgba(0,0,0,.18);
-      border-color: rgba(255,255,255,.28);
-    }
+    .dark-mode #themeToggle{ background: rgba(0,0,0,.18); border-color: rgba(255,255,255,.28); }
 
     .dark-mode{background:#1a1a1a;color:#f0f0f0;}
     .dark-mode header{background:#00d4d4;}
@@ -291,10 +276,6 @@
     #services li{background:#fff;border:1px solid #e9eef2;border-radius:12px;padding:12px 14px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
     .dark-mode #services li{background:#1e1e1e;border-color:#2a2a2a}
 
-    .benefit-card{background:#fff;border:1px solid #e9eef2;border-radius:12px;padding:16px;margin-top:12px;box-shadow:0 2px 12px rgba(0,0,0,.06);transition:transform .2s ease, box-shadow .2s ease}
-    .benefit-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.1)}
-    .dark-mode .benefit-card{background:#1e1e1e;border-color:#2a2a2a;box-shadow:0 6px 20px rgba(0,0,0,.6)}
-
     form{background:#fff;border:1px solid #e9eef2;border-radius:12px;padding:16px;box-shadow:0 4px 16px rgba(0,0,0,.05)}
     form label{display:block;font-size:13px;margin:10px 0 6px}
     form input, form textarea{width:100%;padding:10px 12px;border:1px solid #d9e3ea;border-radius:10px;font:inherit}
@@ -302,14 +283,9 @@
     .dark-mode form{background:#1e1e1e;border-color:#2a2a2a;box-shadow:0 6px 20px rgba(0,0,0,.6)}
     .dark-mode form input, .dark-mode form textarea{background:#121212;color:#f0f0f0;border-color:#3a3a3a}
 
-    button{border-radius:10px}
-    .btn-primary{background:var(--brand);color:#fff;border:none;padding:12px 16px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.08);cursor:pointer;transition:transform .2s ease, box-shadow .2s ease}
+    .btn-primary{background:var(--brand);color:#fff;border:none;padding:12px 16px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.08);cursor:pointer;transition:transform .2s ease, box-shadow .2s ease;border-radius:10px}
     .btn-primary:hover, .btn-primary:focus-visible{transform:translateY(-1px);box-shadow:0 6px 14px rgba(0,0,0,.12);outline:none}
     .dark-mode .btn-primary{background:#00d4d4;color:#003737}
-
-    .reviews p{position:relative;padding:12px 14px;margin:10px 0;background:#f7fafb;border:1px solid #e9eef2;border-radius:10px}
-    .reviews p:not(:last-child){margin-bottom:18px;border-bottom:3px dashed var(--brand);padding-bottom:18px}
-    .dark-mode .reviews p{background:#202020;border-color:#2a2a2a}
 
     .kicker{margin:0 0 8px;text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--brand);font-weight:700}
     .dark-mode .kicker{color:#4de1e1}
@@ -337,25 +313,11 @@
     }
 
     @media (max-width: 768px){
-      /* Mobile smart header: fixed + auto-hide on scroll */
-      header{
-        position: fixed;
-        top: 0; left: 0; right: 0;
-        z-index: 1200;
-        transform: translateY(0);
-        transition: transform .22s ease;
-        will-change: transform;
-      }
+      header{ position: fixed; top:0; left:0; right:0; z-index:1200; transform: translateY(0); transition: transform .22s ease; will-change: transform; }
       header.is-hidden{ transform: translateY(-110%); }
-      body{ padding-top: 76px; /* smaller mobile header */ }
+      body{ padding-top: 72px; }
 
-      /* EXTRA compact mobile header */
-      header .wrap{
-        grid-template-columns: 1fr;
-        grid-template-areas: "logo utils" "contacts";
-        row-gap: 6px;
-        padding: 6px 0;
-      }
+      header .wrap{ grid-template-columns: 1fr; grid-template-areas: "logo utils" "contacts"; row-gap: 6px; padding: 6px 0; }
       .logo-text h1{ font-size: 20px; line-height: 1; }
       .logo-text span{ font-size: 11px; }
 
@@ -363,121 +325,40 @@
       .language-switch{ transform: scale(.9); }
       #themeToggle{ width: 36px; height: 36px; min-height: 36px; }
 
-      .contact-row{
-        justify-self: start;
-        flex-wrap: wrap;
-        gap: 6px;
-      }
-      .phone, .tg-btn, .ig-btn{
-        min-height: 34px;
-        padding: 6px 10px 6px 34px;
-        font-size: 14px;
-      }
+      .contact-row{ justify-self: start; flex-wrap: wrap; gap: 6px; }
+      .phone, .tg-btn, .ig-btn{ min-height: 32px; padding: 6px 10px 6px 32px; font-size: 13px; }
+      .flag{ font-size: 15px; }
       .phone::before, .tg-btn::before, .ig-btn::before{ width: 14px; height: 14px; left: 10px; }
 
-      nav[role="navigation"]{ display:none; } /* hide nav on mobile to save space */
+      nav[role="navigation"]{ display:none; }
 
       .section .container{ padding:14px; border-radius:12px; }
       table{ display:block; overflow-x:auto; -webkit-overflow-scrolling: touch; }
       th, td{ padding:12px; }
     }
 
-    @media (max-width: 520px){
-      .utils{ width:100%; justify-content:space-between; }
-      .language-switch{ flex: 1; }
-      .language-switch button{ flex: 1; }
-    }
+    /* HERO */
+    :root{ --page:#f6fafb; --card:#ffffff; --border:#e9eef2; --shadow: 0 10px 30px rgba(0,0,0,.06); }
+    body{ background: var(--page); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
-    @media (max-width: 640px){
-      .faq summary{padding:12px}
-      .faq .content{padding:0 12px 12px}
-      .car-img{ width:180px; }
-    }
-
-    nav[role="navigation"] a:focus-visible{ outline:3px solid var(--focus); outline-offset:2px; color:#000; background:#ffe600; border-color:#ffe600; }
-
-    /* =========================
-       UI polish + HERO (desktop + mobile)
-    ========================= */
-
-    :root{
-      --page:#f6fafb;
-      --card:#ffffff;
-      --border:#e9eef2;
-      --shadow: 0 10px 30px rgba(0,0,0,.06);
-    }
-
-    body{
-      background: var(--page);
-      font-size: 16px;
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    .section h2{
-      font-size: clamp(22px, 2.2vw, 30px);
-      line-height: 1.15;
-    }
-
-    header .container{ max-width: 1100px; }
-    header .wrap{ row-gap: 6px; }
-
-    table{ box-shadow: var(--shadow); }
-
-    @media (hover: none){
-      .car-img{ transform: none !important; }
-    }
-
-    /* ===== HERO ===== */
     .hero{ padding: 18px 0 8px; }
-    .hero .container{
-      background: linear-gradient(180deg, rgba(0,184,184,.10), rgba(0,184,184,0));
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      border-radius: 16px;
-      padding: 0;
-      overflow: hidden;
-    }
-    .hero-grid{
-      display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 18px;
-      align-items: stretch;
-      padding: 18px;
-    }
-    .hero-title{
-      margin: 10px 0 8px;
-      font-size: clamp(26px, 2.8vw, 40px);
-      line-height: 1.05;
-      letter-spacing: -.02em;
-    }
+    .hero .container{ background: linear-gradient(180deg, rgba(0,184,184,.10), rgba(0,184,184,0)); border: 1px solid var(--border); box-shadow: var(--shadow); border-radius: 16px; padding: 0; overflow: hidden; }
+    .hero-grid{ display:grid; grid-template-columns: 1.25fr .75fr; gap: 18px; align-items: stretch; padding: 18px; }
+    .hero-title{ margin: 10px 0 8px; font-size: clamp(26px, 2.8vw, 40px); line-height: 1.05; letter-spacing: -.02em; }
     .hero-sub{ margin: 0 0 12px; opacity: .92; max-width: 62ch; }
     .hero-points{ margin: 0 0 14px; padding-left: 18px; }
     .hero-points li{ margin: 6px 0; }
-    .hero-actions{ display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 12px; }
-    .btn{ border-radius: 12px; padding: 10px 14px; font-weight: 800; text-decoration: none; border: 1px solid var(--border);
-      box-shadow: 0 8px 18px rgba(0,0,0,.06);
-      display: inline-flex; align-items: center; justify-content: center;
-    }
-    .btn-primary-cta{ background: var(--brand); color: #fff; border-color: transparent; }
-    .btn-secondary-cta{ background: #fff; color: #0b3a3a; }
+    .hero-actions{ display:flex; gap:10px; flex-wrap:wrap; margin: 10px 0 12px; }
+    .btn{ border-radius: 12px; padding: 10px 14px; font-weight: 800; text-decoration:none; border: 1px solid var(--border); box-shadow: 0 8px 18px rgba(0,0,0,.06); display:inline-flex; align-items:center; justify-content:center; }
+    .btn-primary-cta{ background: var(--brand); color:#fff; border-color: transparent; }
+    .btn-secondary-cta{ background:#fff; color:#0b3a3a; }
     .hero-badges{ display:flex; gap:8px; flex-wrap:wrap; }
-    .badge{ font-size: 12px; padding: 6px 10px; border-radius: 999px; background: rgba(0,184,184,.12); border: 1px solid rgba(0,184,184,.22); }
+    .badge{ font-size:12px; padding: 6px 10px; border-radius: 999px; background: rgba(0,184,184,.12); border: 1px solid rgba(0,184,184,.22); }
 
-    .hero-card-inner{
-      height: 100%;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background: #fff;
-      box-shadow: var(--shadow);
-      padding: 16px;
-    }
+    .hero-card-inner{ height:100%; border-radius: 16px; border: 1px solid var(--border); background:#fff; box-shadow: var(--shadow); padding: 16px; }
     .hero-card-inner h3{ margin: 0 0 6px; }
     .hero-mini{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px; }
-    .mini{ display:inline-flex; align-items:center; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--border);
-      text-decoration:none; font-weight: 800; color: #0b3a3a; background:#fff;
-    }
+    .mini{ display:inline-flex; align-items:center; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--border); text-decoration:none; font-weight: 800; color:#0b3a3a; background:#fff; }
 
     .dark-mode .hero .container{ border-color:#2a2a2a; }
     .dark-mode .hero-card-inner,
@@ -486,19 +367,11 @@
 
     @media (max-width: 480px){
       input, textarea, button{ font-size:16px; }
-
       .hero-grid{ grid-template-columns: 1fr; padding: 16px; }
+      .contact-row{ flex-direction: column; align-items: stretch; gap: 8px; }
+      .phone, .tg-btn, .ig-btn{ width: 100%; justify-content: center; box-sizing: border-box; }
 
-      .contact-row{ flex-direction: column; align-items: stretch; gap: 10px; white-space: normal; }
-      .phone, .tg-btn, .ig-btn{ width: 100%; justify-content: center; padding: 10px 12px 10px 40px; box-sizing: border-box; }
-      .phone::before, .tg-btn::before, .ig-btn::before{ top: 50%; transform: translateY(-50%); }
-
-      nav[role="navigation"]{ flex-wrap: wrap; justify-content: center; gap: 8px; }
-      nav[role="navigation"] a{ padding: 10px 12px; }
-
-      .section .container{ padding: 16px; }
-
-      #fleet table, #fleet tbody, #fleet tr, #fleet td{ display: block; width: 100%; }
+      #fleet table, #fleet tbody, #fleet tr, #fleet td{ display:block; width:100%; }
       #fleet thead{ display:none; }
       #fleet tr{ border:1px solid var(--border); border-radius: 14px; overflow:hidden; margin:12px 0; box-shadow: 0 8px 22px rgba(0,0,0,.06); background:#fff; }
       .dark-mode #fleet tr{ background:#1d1d1d; border-color:#2a2a2a; box-shadow: 0 12px 28px rgba(0,0,0,.55); }
@@ -510,32 +383,39 @@
 <body>
   <a class="skip-link" href="#main">Перейти к содержимому</a>
   <div id="top"></div>
+
   <header>
     <div class="container wrap">
-      <a href="#top" class="logo-text" aria-label="На главную viTour.bus"><h1>viTour.bus</h1><span data-i18n="subtitle">Пассажирские перевозки • Трансферы</span></a>
+      <a href="#top" class="logo-text" aria-label="На главную viTour.bus">
+        <h1>viTour.bus</h1>
+        <span data-i18n="subtitle">Пассажирские перевозки • Трансферы</span>
+      </a>
+
       <div class="header-right">
         <div class="contact-row">
-          <a class="phone" href="tel:+380933142885" aria-label="Позвонить Украина +38 093 314 28 85" data-scroll-to="#booking">
+          <a class="phone" href="tel:+380933142885" aria-label="Позвонить Украина +38 093 314 28 85">
             <span class="flag" aria-hidden="true">🇺🇦</span>
             +38&nbsp;093&nbsp;314&nbsp;28&nbsp;85
           </a>
-          <a class="phone" href="tel:+380987020220" aria-label="Позвонить Украина +38 098 702 02 20" data-scroll-to="#booking">
+          <a class="phone" href="tel:+380987020220" aria-label="Позвонить Украина +38 098 702 02 20">
             <span class="flag" aria-hidden="true">🇺🇦</span>
             +38&nbsp;098&nbsp;702&nbsp;02&nbsp;20
           </a>
-          <a class="phone" href="tel:+37360577130" aria-label="Позвонить Молдова +373 605 77 130" data-scroll-to="#booking">
+          <a class="phone" href="tel:+37360577130" aria-label="Позвонить Молдова +373 605 77 130">
             <span class="flag" aria-hidden="true">🇲🇩</span>
             +373&nbsp;605&nbsp;77&nbsp;130
           </a>
           <a class="tg-btn" href="https://t.me/seredaa_v" target="_blank" rel="noopener" aria-label="Открыть Telegram: @seredaa_v" data-i18n="tg.button">Написать в Telegram</a>
           <a class="ig-btn" href="https://instagram.com/vitour.bus" target="_blank" rel="noopener" aria-label="Открыть Instagram: @vitour.bus" data-i18n="ig.button">Instagram</a>
         </div>
+
         <nav role="navigation" aria-label="Главная навигация">
           <a href="#top" data-i18n="nav.home">Главная</a>
           <a href="#fleet" data-i18n="nav.fleet">Автопарк</a>
           <a href="#services" data-i18n="nav.services">Услуги</a>
           <a href="#booking" id="nav-booking" data-i18n="nav.booking">Бронирование <span class="bus" aria-hidden="true"></span></a>
         </nav>
+
         <div class="utils">
           <div class="language-switch" role="group" aria-label="Смена языка">
             <button id="btn-ru" type="button" data-lang="ru">Рус</button>
@@ -556,36 +436,38 @@
     <div class="container">
       <div class="hero-grid">
         <div class="hero-copy">
-          <p class="kicker">ТРАНСФЕРЫ • МЕЖГОРОД • АЭРОПОРТ</p>
-          <h2 class="hero-title">viTour.bus — пассажирские перевозки 24/7</h2>
-          <p class="hero-sub">Седаны, минивэны, микроавтобусы и автобусы. Встреча с табличкой, багаж, детские кресла по запросу.</p>
+          <p class="kicker" data-i18n="hero.kicker">ТРАНСФЕРЫ • МЕЖГОРОД • АЭРОПОРТ</p>
+          <h2 class="hero-title" data-i18n="hero.title">viTour.bus — пассажирские перевозки 24/7</h2>
+          <p class="hero-sub" data-i18n="hero.sub">Седаны, минивэны, микроавтобусы и автобусы. Встреча с табличкой, багаж, детские кресла по запросу.</p>
 
           <ul class="hero-points">
-            <li>Быстрое бронирование</li>
-            <li>Фиксированная цена до поездки</li>
-            <li>Чистые авто и опытные водители</li>
+            <li data-i18n="hero.p1">Быстрое бронирование</li>
+            <li data-i18n="hero.p2">Фиксированная цена до поездки</li>
+            <li data-i18n="hero.p3">Чистые авто и опытные водители</li>
           </ul>
 
           <div class="hero-actions">
-            <a class="btn btn-primary-cta" href="tel:+380933142885">Позвонить</a>
-            <a class="btn btn-secondary-cta" href="#booking">Оставить заявку</a>
+            <a class="btn btn-primary-cta" href="tel:+380933142885" data-i18n="hero.call1">Позвонить UA</a>
+            <a class="btn btn-primary-cta" href="tel:+380987020220" data-i18n="hero.call2">Позвонить UA 2</a>
+            <a class="btn btn-primary-cta" href="tel:+37360577130" data-i18n="hero.call3">Позвонить MD</a>
+            <a class="btn btn-secondary-cta" href="#booking" data-i18n="hero.cta">Оставить заявку</a>
           </div>
 
           <div class="hero-badges">
-            <span class="badge">Одесса</span>
-            <span class="badge">Украина</span>
-            <span class="badge">Межгород</span>
+            <span class="badge" data-i18n="hero.b1">Одесса</span>
+            <span class="badge" data-i18n="hero.b2">Украина</span>
+            <span class="badge" data-i18n="hero.b3">Межгород</span>
           </div>
         </div>
 
         <div class="hero-card">
           <div class="hero-card-inner">
-            <h3>Быстрый заказ</h3>
-            <p style="margin:0;opacity:.9">Напиши маршрут и время — ответим с ценой.</p>
+            <h3 data-i18n="hero.cardTitle">Быстрый заказ</h3>
+            <p style="margin:0;opacity:.9" data-i18n="hero.cardSub">Напиши маршрут и время — ответим с ценой.</p>
             <div class="hero-mini">
-              <a class="mini" href="#services">Услуги</a>
-              <a class="mini" href="#fleet">Автопарк</a>
-              <a class="mini" href="#booking">Форма</a>
+              <a class="mini" href="#services" data-i18n="hero.m1">Услуги</a>
+              <a class="mini" href="#fleet" data-i18n="hero.m2">Автопарк</a>
+              <a class="mini" href="#booking" data-i18n="hero.m3">Форма</a>
             </div>
           </div>
         </div>
@@ -635,6 +517,7 @@
         </table>
       </div>
     </section>
+
     <div class="section-sep" aria-hidden="true"></div>
 
     <section class="section services" id="services" aria-labelledby="services-title">
@@ -650,6 +533,7 @@
         </ul>
       </div>
     </section>
+
     <div class="section-sep" aria-hidden="true"></div>
 
     <section class="section" id="booking" aria-labelledby="booking-title">
@@ -680,6 +564,7 @@
         </form>
       </div>
     </section>
+
     <div class="section-sep" aria-hidden="true"></div>
 
     <section class="section faq" id="faq" aria-labelledby="faq-title">
@@ -705,6 +590,7 @@
         </details>
       </div>
     </section>
+
     <div class="section-sep" aria-hidden="true"></div>
 
     <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
@@ -715,7 +601,6 @@
         <p data-i18n="reviews.item2">«Ездили в Болгарию — отличный сервис!» — Игорь</p>
       </div>
     </section>
-    <div class="section-sep" aria-hidden="true"></div>
   </main>
 
   <footer class="footer">
@@ -723,21 +608,14 @@
   </footer>
 
   <script>
-    // NOTE ABOUT THE ERROR YOU SAW:
-    // "Failed to execute 'write' on 'Document': Invalid regular expression flags"
-    // This typically happens when some embedder wraps HTML into document.write("...")
-    // and the embedded JS contains regex literals like /.../g or /.../i.
-    // Some pipelines accidentally append characters after the last slash, producing invalid flags.
-    // To be robust, THIS FILE AVOIDS REGEX LITERALS ENTIRELY and uses RegExp(...) constructors.
+    // This file avoids regex literals (/.../g) to be safe in strict document.write pipelines.
 
-    // Helpers (compatible)
     function addEvt(el, ev, fn){
       if(!el) return;
       if(el.addEventListener) el.addEventListener(ev, fn, false);
       else if(el.attachEvent) el.attachEvent('on'+ev, fn);
     }
 
-    // Older embedders sometimes choke on regex literals. Use RegExp constructors.
     function safeTrim(s){
       if(s == null) return "";
       var str = String(s);
@@ -753,9 +631,7 @@
       }
       var re = new RegExp('(^|\\s)'+cls+'(\\s|$)','g');
       el.className = safeTrim(el.className.replace(re,' '));
-      if(on){
-        el.className = safeTrim(el.className + ' ' + cls);
-      }
+      if(on) el.className = safeTrim(el.className + ' ' + cls);
     }
 
     function hasClass(el, cls){
@@ -764,7 +640,6 @@
       return new RegExp('(^|\\s)'+cls+'(\\s|$)').test(el.className);
     }
 
-    // Tap/click handler that won't double-fire on mobile
     function onTap(el, handler){
       if(!el) return;
       var touched = false;
@@ -791,29 +666,19 @@
 
       var lastY = 0;
       var ticking = false;
-      var threshold = 14; // px
+      var threshold = 14;
 
       function show(){ setClass(header, 'is-hidden', false); }
       function hide(){ setClass(header, 'is-hidden', true); }
 
       function update(){
         ticking = false;
-        if(!isMobile()){
-          show();
-          return;
-        }
+        if(!isMobile()) { show(); return; }
         var y = 0;
         try{ y = window.pageYOffset || document.documentElement.scrollTop || 0; }catch(_){ y = 0; }
-
-        if(y <= 10){
-          lastY = y;
-          show();
-          return;
-        }
-
+        if(y <= 10){ lastY = y; show(); return; }
         var dy = y - lastY;
         if(Math.abs(dy) < threshold) return;
-
         if(dy > 0) hide(); else show();
         lastY = y;
       }
@@ -824,7 +689,6 @@
         (window.requestAnimationFrame || function(cb){ return setTimeout(cb, 16); })(update);
       }
 
-      // Init
       try{ lastY = window.pageYOffset || document.documentElement.scrollTop || 0; }catch(_){ lastY = 0; }
       addEvt(window, 'scroll', onScroll);
       addEvt(window, 'resize', function(){ if(!isMobile()) show(); });
@@ -840,45 +704,83 @@
       remove: function(k){ try{ sessionStorage.removeItem(k); }catch(_){ } }
     };
 
-    // Translations
+    // Translations (FIXED: no duplicate keys; HERO fully covered)
     var translations = {
-      uk: {
-        title: "viTour.bus — Пасажирські перевезення • Трансфери",
-        subtitle:"Пасажирські перевезення • Трансфери",
-        "nav.home":"Головна","nav.fleet":"Автопарк","nav.services":"Послуги","nav.booking":"Бронювання",
-        "fleet.title":"Перелік авто","fleet.col1":"Клас авто","fleet.col2":"Опис","fleet.std":"СТАНДАРТ","fleet.minivan":"МІНІВЕН","fleet.microbus":"МІКРОАВТОБУС","fleet.bus":"АВТОБУС",
-        "services.title":"Наші послуги",
-        "services.item1":"🛫 Трансфери в аеропорт","services.item2":"🌆 Поїздки містом і за його межами","services.item3":"🎉 Обслуговування заходів","services.item4":"🏖 Поїздки на відпочинок","services.item5":"💍 Обслуговування весіль",
-        "booking.title":"Забронювати поїздку","form.name":"Ім'я","form.phone":"Телефон","form.route":"Маршрут (звідки — куди)","form.comment":"Коментар (дата, час, кількість пасажирів)","form.submit":"Надіслати заявку",
-        "reviews.title":"Відгуки клієнтів","reviews.item1":"«Все сподобалось, комфортно та вчасно!» — Олена","reviews.item2":"«Їздили до Болгарії — чудовий сервіс!» — Ігор",
-        "form.tgSend":"Надіслати в Telegram",
-        "tg.button":"Написати в Telegram","ig.button":"Instagram",
-        "kicker.fleet":"Автопарк","kicker.services":"Послуги","kicker.booking":"Бронювання","kicker.reviews":"Відгуки",
-        "kicker.faq":"FAQ","faq.title":"Поширені питання",
-        "faq.q1":"Як забронювати поїздку?","faq.a1":"Залиште заявку через форму на сайті або напишіть нам у Telegram. Ми підтвердимо та надішлемо ціну.",
-        "faq.q2":"Чи потрібна передоплата?","faq.a2":"Для далеких маршрутів можлива невелика передоплата для фіксації авто. По місту — зазвичай без передоплати.",
-        "faq.q3":"Чи можна з багажем і тваринами?","faq.a3":"Так. Вкажіть розмір багажу та наявність улюбленців у коментарі — підберемо відповідне авто та умови.",
-        "faq.q4":"Чи є дитячі крісла?","faq.a4":"За запитом надаємо дитячі крісла/бустери. Повідомте вік дитини при оформленні.",
-        "footer":"© 2025 viTour.bus — Усі права захищені"
-      },
       ru: {
         title: "viTour.bus — Пассажирские перевозки • Трансферы",
-        subtitle:"Пассажирские перевозки • Трансферы",
+        subtitle: "Пассажирские перевозки • Трансферы",
         "nav.home":"Главная","nav.fleet":"Автопарк","nav.services":"Услуги","nav.booking":"Бронирование",
+        "kicker.fleet":"Автопарк","kicker.services":"Услуги","kicker.booking":"Бронирование","kicker.reviews":"Отзывы","kicker.faq":"FAQ",
         "fleet.title":"Перечень авто","fleet.col1":"Класс авто","fleet.col2":"Описание","fleet.std":"СТАНДАРТ","fleet.minivan":"МИНИВЕН","fleet.microbus":"МИКРОАВТОБУС","fleet.bus":"АВТОБУС",
         "services.title":"Наши услуги",
         "services.item1":"🛫 Трансферы в аэропорт","services.item2":"🌆 Поездки по городу и за его пределами","services.item3":"🎉 Обслуживание мероприятий","services.item4":"🏖 Поездки на отдых","services.item5":"💍 Обслуживание свадеб",
-        "booking.title":"Забронировать поездку","form.name":"Имя","form.phone":"Телефон","form.route":"Маршрут (откуда — куда)","form.comment":"Комментарий (дата, время, кол-во пассажиров)","form.submit":"Отправить заявку",
+        "booking.title":"Забронировать поездку","form.name":"Имя","form.phone":"Телефон","form.route":"Маршрут (откуда — куда)","form.comment":"Комментарий (дата, время, кол-во пассажиров)","form.submit":"Отправить заявку","form.tgSend":"Отправить в Telegram",
         "reviews.title":"Отзывы клиентов","reviews.item1":"«Все понравилось, комфортно и вовремя!» — Елена","reviews.item2":"«Ездили в Болгарию — отличный сервис!» — Игорь",
-        "form.tgSend":"Отправить в Telegram",
         "tg.button":"Написать в Telegram","ig.button":"Instagram",
-        "kicker.fleet":"Автопарк","kicker.services":"Услуги","kicker.booking":"Бронирование","kicker.reviews":"Отзывы",
-        "kicker.faq":"FAQ","faq.title":"Частые вопросы",
+        "faq.title":"Частые вопросы",
         "faq.q1":"Как забронировать поездку?","faq.a1":"Оставьте заявку через форму на сайте или напишите нам в Telegram. Мы подтвердим и пришлём цену.",
         "faq.q2":"Нужна ли предоплата?","faq.a2":"Для дальних маршрутов возможна небольшая предоплата для фиксации авто. По городу — обычно без предоплаты.",
         "faq.q3":"Можно ли с багажом и животными?","faq.a3":"Да. Укажите размер багажа и наличие питомцев в комментарии — подберём подходящее авто и условия.",
         "faq.q4":"Есть ли детские кресла?","faq.a4":"По запросу предоставляем детские кресла/бустеры. Сообщите возраст ребёнка при оформлении.",
-        "footer":"© 2025 viTour.bus — Все права защищены"
+        footer:"© 2025 viTour.bus — Все права защищены",
+
+        // HERO
+        "hero.kicker":"ТРАНСФЕРЫ • МЕЖГОРОД • АЭРОПОРТ",
+        "hero.title":"viTour.bus — пассажирские перевозки 24/7",
+        "hero.sub":"Седаны, минивэны, микроавтобусы и автобусы. Встреча с табличкой, багаж, детские кресла по запросу.",
+        "hero.p1":"Быстрое бронирование",
+        "hero.p2":"Фиксированная цена до поездки",
+        "hero.p3":"Чистые авто и опытные водители",
+        "hero.call1":"Позвонить UA",
+        "hero.call2":"Позвонить UA 2",
+        "hero.call3":"Позвонить MD",
+        "hero.cta":"Оставить заявку",
+        "hero.b1":"Одесса",
+        "hero.b2":"Украина",
+        "hero.b3":"Межгород",
+        "hero.cardTitle":"Быстрый заказ",
+        "hero.cardSub":"Напиши маршрут и время — ответим с ценой.",
+        "hero.m1":"Услуги",
+        "hero.m2":"Автопарк",
+        "hero.m3":"Форма"
+      },
+      uk: {
+        title: "viTour.bus — Пасажирські перевезення • Трансфери",
+        subtitle: "Пасажирські перевезення • Трансфери",
+        "nav.home":"Головна","nav.fleet":"Автопарк","nav.services":"Послуги","nav.booking":"Бронювання",
+        "kicker.fleet":"Автопарк","kicker.services":"Послуги","kicker.booking":"Бронювання","kicker.reviews":"Відгуки","kicker.faq":"FAQ",
+        "fleet.title":"Перелік авто","fleet.col1":"Клас авто","fleet.col2":"Опис","fleet.std":"СТАНДАРТ","fleet.minivan":"МІНІВЕН","fleet.microbus":"МІКРОАВТОБУС","fleet.bus":"АВТОБУС",
+        "services.title":"Наші послуги",
+        "services.item1":"🛫 Трансфери в аеропорт","services.item2":"🌆 Поїздки містом і за його межами","services.item3":"🎉 Обслуговування заходів","services.item4":"🏖 Поїздки на відпочинок","services.item5":"💍 Обслуговування весіль",
+        "booking.title":"Забронювати поїздку","form.name":"Ім'я","form.phone":"Телефон","form.route":"Маршрут (звідки — куди)","form.comment":"Коментар (дата, час, кількість пасажирів)","form.submit":"Надіслати заявку","form.tgSend":"Надіслати в Telegram",
+        "reviews.title":"Відгуки клієнтів","reviews.item1":"«Все сподобалось, комфортно та вчасно!» — Олена","reviews.item2":"«Їздили до Болгарії — чудовий сервіс!» — Ігор",
+        "tg.button":"Написати в Telegram","ig.button":"Instagram",
+        "faq.title":"Поширені питання",
+        "faq.q1":"Як забронювати поїздку?","faq.a1":"Залиште заявку через форму на сайті або напишіть нам у Telegram. Ми підтвердимо та надішлемо ціну.",
+        "faq.q2":"Чи потрібна передоплата?","faq.a2":"Для далеких маршрутів можлива невелика передоплата для фіксації авто. По місту — зазвичай без передоплати.",
+        "faq.q3":"Чи можна з багажем і тваринами?","faq.a3":"Так. Вкажіть розмір багажу та наявність улюбленців у коментарі — підберемо відповідне авто та умови.",
+        "faq.q4":"Чи є дитячі крісла?","faq.a4":"За запитом надаємо дитячі крісла/бустери. Повідомте вік дитини при оформленні.",
+        footer:"© 2025 viTour.bus — Усі права захищені",
+
+        // HERO
+        "hero.kicker":"ТРАНСФЕРИ • МІЖМІСТО • АЕРОПОРТ",
+        "hero.title":"viTour.bus — пасажирські перевезення 24/7",
+        "hero.sub":"Седани, мінівени, мікроавтобуси та автобуси. Зустріч з табличкою, багаж, дитячі крісла за запитом.",
+        "hero.p1":"Швидке бронювання",
+        "hero.p2":"Фіксована ціна до поїздки",
+        "hero.p3":"Чисті авто та досвідчені водії",
+        "hero.call1":"Подзвонити UA",
+        "hero.call2":"Подзвонити UA 2",
+        "hero.call3":"Подзвонити MD",
+        "hero.cta":"Залишити заявку",
+        "hero.b1":"Одеса",
+        "hero.b2":"Україна",
+        "hero.b3":"Міжмісто",
+        "hero.cardTitle":"Швидке замовлення",
+        "hero.cardSub":"Напиши маршрут і час — відповімо з ціною.",
+        "hero.m1":"Послуги",
+        "hero.m2":"Автопарк",
+        "hero.m3":"Форма"
       }
     };
 
@@ -912,11 +814,7 @@
         if(pval != null) pel.placeholder = pval;
       }
 
-      if(t.title){
-        document.title = t.title;
-        var titleEl = document.querySelector('[data-i18n-title]');
-        if(titleEl) titleEl.textContent = t.title;
-      }
+      if(t.title){ document.title = t.title; }
 
       var br = document.getElementById('btn-ru');
       var bu = document.getElementById('btn-uk');
@@ -928,14 +826,12 @@
 
       storage.set('lang', lang);
 
-      // Optional: reflect language in URL (?lang=ru|uk). If you want this OFF, tell me.
+      // Update URL param (?lang=ru|uk)
       try{
         if(window.URL && window.location && window.history && window.history.replaceState){
           var u = new URL(window.location.href);
-          if(u.searchParams.get('lang') !== lang){
-            u.searchParams.set('lang', lang);
-            window.history.replaceState(null,'',u.toString());
-          }
+          u.searchParams.set('lang', lang);
+          window.history.replaceState(null,'',u.toString());
         }
       }catch(_){ }
     }
@@ -958,9 +854,7 @@
     sstorage.set('form_started_ts', String(Date.now()));
     var formEl = document.getElementById('bookingForm');
     if(formEl){
-      var markStart = function(){
-        if(!sstorage.get('form_started_ts')) sstorage.set('form_started_ts', String(Date.now()));
-      };
+      var markStart = function(){ if(!sstorage.get('form_started_ts')) sstorage.set('form_started_ts', String(Date.now())); };
       addEvt(formEl,'focusin',markStart);
       addEvt(formEl,'input',markStart);
       addEvt(formEl,'change',markStart);
@@ -970,12 +864,9 @@
     (function(){
       var btn = document.getElementById('themeToggle');
       if(!btn) return;
-
       var metaTheme = document.querySelector('meta[name="theme-color"]');
 
-      function setMeta(isDark){
-        if(metaTheme) metaTheme.setAttribute('content', isDark ? '#1a1a1a' : '#00b8b8');
-      }
+      function setMeta(isDark){ if(metaTheme) metaTheme.setAttribute('content', isDark ? '#1a1a1a' : '#00b8b8'); }
 
       function setTheme(isDark){
         setClass(document.body, 'dark-mode', !!isDark);
@@ -1000,16 +891,12 @@
 
       setTheme(initialDark);
 
-      onTap(btn, function(){
-        setTheme(!hasClass(document.body, 'dark-mode'));
-      });
+      onTap(btn, function(){ setTheme(!hasClass(document.body, 'dark-mode')); });
     })();
 
-    // Submit handler (global for onsubmit="")
     function handleSubmit(e){
       e.preventDefault();
       var form = e.target;
-
       if (form.website && safeTrim(form.website.value) !== '') { return; }
 
       var started = Number(sstorage.get('form_started_ts') || 0);
@@ -1023,18 +910,15 @@
       }
 
       var phone = safeTrim(form.phone.value);
-      // sanitize without regex literal
       var digits = phone.replace(new RegExp('[^0-9+]','g'), '');
-      if (digits.length < 7) {
-        alert('Проверьте номер телефона'); form.phone.focus(); return;
-      }
+      if (digits.length < 7) { alert('Проверьте номер телефона'); form.phone.focus(); return; }
 
       alert('Спасибо! Ваша заявка отправлена.');
       form.reset();
       sstorage.remove('form_started_ts');
     }
 
-    // JSON-LD Organization
+    // JSON-LD Organization (UPDATED: all phones)
     (function(){
       try{
         var org = {
@@ -1042,9 +926,9 @@
           "@type":"TaxiService",
           "name":"viTour.bus",
           "url":"https://vitourbus.com.ua",
-          "telephone":"+380933142885",
-          "areaServed":"UA",
-          "sameAs":[ "https://t.me/seredaa_v", "https://instagram.com/vitour.bus" ],
+          "telephone":["+380933142885","+380987020220","+37360577130"],
+          "areaServed":["UA","MD"],
+          "sameAs":["https://t.me/seredaa_v","https://instagram.com/vitour.bus"],
           "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}]
         };
         var ld = document.createElement('script');
@@ -1084,20 +968,13 @@
       });
     })();
 
-    // Smooth-scroll: ignore external links (NO regex literal)
+    // Smooth-scroll for data-scroll-to (NO regex literals)
     (function(){
-      function shouldBypass(e){
-        return e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0;
-      }
+      function shouldBypass(e){ return e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0; }
       function isExternalHref(href){
         href = safeTrim(href).toLowerCase();
         if(!href) return false;
-        return (
-          href.indexOf('http://') === 0 ||
-          href.indexOf('https://') === 0 ||
-          href.indexOf('tel:') === 0 ||
-          href.indexOf('mailto:') === 0
-        );
+        return (href.indexOf('http://')===0 || href.indexOf('https://')===0 || href.indexOf('tel:')===0 || href.indexOf('mailto:')===0);
       }
 
       var list = document.querySelectorAll('[data-scroll-to]');
@@ -1105,8 +982,6 @@
         (function(el){
           addEvt(el,'click',function(e){
             if(shouldBypass(e)) return;
-            if(el.classList && el.classList.contains('phone')) return;
-
             if(el.tagName === 'A'){
               var href = el.getAttribute('href') || '';
               if(el.target === '_blank' || isExternalHref(href)) return;
@@ -1118,20 +993,14 @@
             if(e.preventDefault) e.preventDefault();
 
             try{ target.scrollIntoView({behavior:'smooth', block:'start'}); }catch(_){ target.scrollIntoView(true); }
-            try{ if(window.history && window.history.pushState) window.history.pushState(null,'',sel); }catch(_){ }
           });
         })(list[i]);
       }
     })();
 
-    /*
-      === Tiny self-tests (run once) ===
-      Purpose: catch syntax/logic regressions early.
-      These tests DO NOT change site behavior.
-    */
+    /* Tiny self-tests */
     (function(){
       try{
-        // Test 1: language slider state toggles
         var ls = document.querySelector('.language-switch');
         if(ls){
           setLanguage('ru');
@@ -1140,42 +1009,13 @@
           if(ls.style.getPropertyValue('--lang-x') !== '100%') throw new Error('Lang slider UK should be 100%');
         }
 
-        // Test 2: theme toggle updates aria-pressed (without relying on click semantics)
-        var tb = document.getElementById('themeToggle');
-        if(tb){
-          var before = tb.getAttribute('aria-pressed');
-          tb.click();
-          var after = tb.getAttribute('aria-pressed');
-          if(before === after) throw new Error('Theme toggle should flip aria-pressed');
-          tb.click();
-        }
-
-        // Test 3: external href detector
         var sample = ['https://a.com','http://a.com','tel:+380','mailto:test@a.com','#booking','/path'];
         var expected = [true,true,true,true,false,false];
         for(var i=0;i<sample.length;i++){
-          var got = (function(h){
-            h = safeTrim(h).toLowerCase();
-            return (h.indexOf('http://')===0 || h.indexOf('https://')===0 || h.indexOf('tel:')===0 || h.indexOf('mailto:')===0);
-          })(sample[i]);
+          var h = safeTrim(sample[i]).toLowerCase();
+          var got = (h.indexOf('http://')===0 || h.indexOf('https://')===0 || h.indexOf('tel:')===0 || h.indexOf('mailto:')===0);
           if(got !== expected[i]) throw new Error('External href test failed: '+sample[i]);
         }
-
-        // Test 4 (NEW): regex literal guard - ensure we didn't accidentally introduce /.../flags
-        // This only runs in environments where document.currentScript is available.
-        // It doesn't use regex literals either.
-        try{
-          var cs = document.currentScript;
-          if(cs && cs.textContent){
-            var txt = cs.textContent;
-            // crude check: if it contains " /" and "/g" patterns; not perfect but catches accidents
-            if(txt.indexOf('/g') !== -1 || txt.indexOf('/i') !== -1 || txt.indexOf('/m') !== -1){
-              // avoid false positives from URLs by checking for "new RegExp(" usage exists (it does)
-              // We just warn, not throw.
-              console.warn('[Self-tests] Possible regex literal flag token found; ensure no /.../flags literals were added.');
-            }
-          }
-        }catch(_){ }
       }catch(err){
         try{ console.warn('[Self-tests]', err); }catch(_){ }
       }
