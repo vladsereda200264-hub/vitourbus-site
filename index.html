@@ -768,6 +768,57 @@
       });
     }
 
+    // Mobile smart header: hide on scroll down, show on scroll up (<=768px)
+    (function(){
+      var header = document.querySelector('header');
+      if(!header) return;
+
+      function isMobile(){
+        try{ return window.matchMedia && window.matchMedia('(max-width: 768px)').matches; }
+        catch(_){ return (window.innerWidth || 9999) <= 768; }
+      }
+
+      var lastY = 0;
+      var ticking = false;
+      var threshold = 14; // px
+
+      function show(){ setClass(header, 'is-hidden', false); }
+      function hide(){ setClass(header, 'is-hidden', true); }
+
+      function update(){
+        ticking = false;
+        if(!isMobile()){
+          show();
+          return;
+        }
+        var y = 0;
+        try{ y = window.pageYOffset || document.documentElement.scrollTop || 0; }catch(_){ y = 0; }
+
+        if(y <= 10){
+          lastY = y;
+          show();
+          return;
+        }
+
+        var dy = y - lastY;
+        if(Math.abs(dy) < threshold) return;
+
+        if(dy > 0) hide(); else show();
+        lastY = y;
+      }
+
+      function onScroll(){
+        if(ticking) return;
+        ticking = true;
+        (window.requestAnimationFrame || function(cb){ return setTimeout(cb, 16); })(update);
+      }
+
+      // Init
+      try{ lastY = window.pageYOffset || document.documentElement.scrollTop || 0; }catch(_){ lastY = 0; }
+      addEvt(window, 'scroll', onScroll);
+      addEvt(window, 'resize', function(){ if(!isMobile()) show(); });
+    })();
+
     var storage = {
       get: function(k){ try{ return localStorage.getItem(k); }catch(_){ return null; } },
       set: function(k,v){ try{ localStorage.setItem(k,v); }catch(_){ } }
