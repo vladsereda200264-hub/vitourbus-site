@@ -2,61 +2,31 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
+  <meta name="google-site-verification" content="AgKVAeretnPEEJHek1HQkjIlqXaY5O3Qlo3atFmuOro" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Prevent indexing of github.io mirrors -->
-  <script>
-    (function(){
-      var host = (location && location.hostname) ? location.hostname.toLowerCase() : "";
-      if(host.indexOf("github.io") !== -1){
-        var m = document.createElement("meta");
-        m.name = "robots";
-        m.content = "noindex, follow";
-        document.head.appendChild(m);
-      }
-    })();
-  </script>
-
-  <!-- Primary SEO -->
-  <title>viTour.bus — Пасажирські перевезення • Трансфери</title>
+  <!-- ✅ IMPORTANT: domain is vitourbus.com (no .ua) -->
+  <title data-i18n-title>viTour.bus — Пасажирські перевезення • Трансфери</title>
   <meta name="description" content="viTour.bus — пассажирские перевозки, трансферы, VIP-авто, минивэны и автобусы. Бронирование 24/7." />
-  <link rel="canonical" href="https://vitourbus.com/" />
 
-  <!-- Open Graph / Social preview -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="viTour.bus" />
+  <!-- ✅ Social / SEO (set absolute URLs) -->
   <meta property="og:title" content="viTour.bus — Пассажирские перевозки • Трансферы" />
   <meta property="og:description" content="Автопарк от седанов до автобусов. Трансферы 24/7. Встреча в аэропорту." />
-  <meta property="og:url" content="https://vitourbus.com/" />
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="https://vitourbus.com/og.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-  <!-- Twitter -->
+  <meta property="og:url" content="https://vitourbus.com/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="viTour.bus — Пассажирские перевозки • Трансферы" />
-  <meta name="twitter:description" content="Автопарк от седанов до автобусов. Трансферы 24/7. Встреча в аэропорту." />
-  <meta name="twitter:image" content="https://vitourbus.com/og.jpg" />
-
   <meta name="theme-color" content="#00b8b8" />
 
-  <!-- hreflang -->
+  <!-- ✅ SEO: canonical + hreflang -->
+  <link rel="canonical" href="https://vitourbus.com/" />
   <link rel="alternate" href="https://vitourbus.com/?lang=ru" hreflang="ru-UA" />
   <link rel="alternate" href="https://vitourbus.com/?lang=uk" hreflang="uk-UA" />
   <link rel="alternate" href="https://vitourbus.com/" hreflang="x-default" />
 
-  <!-- Icons (optional). Add favicon.ico if you have it -->
-  <link rel="icon" href="/favicon.ico" />
-
-  <!-- Basic security: do NOT block external images you use -->
+  <!-- CSP -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' blob:;
-                 img-src 'self' data: https://arttaxi.com.ua https://gettransfer.com;
-                 style-src 'self' 'unsafe-inline';
-                 script-src 'self' 'unsafe-inline';
-                 connect-src 'self';
-                 frame-ancestors 'none';
-                 base-uri 'self'">
+        content="default-src 'self' blob:; img-src 'self' data: https://arttaxi.com.ua https://gettransfer.com; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'">
 
   <style>
     :root { --brand:#00b8b8; --brand-dark:#009999; --bg:#fff; --fg:#333; --focus:#ffe600; }
@@ -73,9 +43,11 @@
     .logo-text span { font-size: 13px; display: block; opacity: .95; }
 
     .header-right{display:contents}
+
     .flag{ display:inline-flex; align-items:center; justify-content:center; font-size: 16px; line-height: 1; margin-right: 6px; }
 
-    .phone, .tg-btn, .ig-btn{
+    /* Phone button */
+    .phone{
       --btn-bg: rgba(255,255,255,.15);
       --btn-border: rgba(255,255,255,.55);
       --btn-shadow: 0 6px 16px rgba(0,0,0,.18);
@@ -97,15 +69,10 @@
       min-height: 34px;
       max-width: 100%;
     }
-    .phone:hover, .phone:focus-visible,
-    .tg-btn:hover, .tg-btn:focus-visible,
-    .ig-btn:hover, .ig-btn:focus-visible{
+    .phone:hover, .phone:focus-visible{
       transform: translateY(-1px);
       box-shadow: 0 10px 22px rgba(0,0,0,.28);
       outline:none;
-    }
-
-    .phone:hover, .phone:focus-visible{
       background: linear-gradient(180deg, #6af2f2, var(--brand));
       color:#003737;
     }
@@ -118,10 +85,43 @@
       background: no-repeat center/contain url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.2z"/></svg>');
     }
 
-    .tg-btn{ --tg:#229ED9; }
-    .tg-btn:hover, .tg-btn:focus-visible{ background: linear-gradient(180deg, #2bb2ff, #229ED9); color:#fff; }
+    /* Social buttons */
+    .tg-btn, .ig-btn{
+      --btn-bg: rgba(255,255,255,.15);
+      --btn-border: rgba(255,255,255,.55);
+      --btn-shadow: 0 6px 16px rgba(0,0,0,.18);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px 7px 32px;
+      font-weight: 700;
+      font-size: 14px;
+      color:#fff;
+      text-decoration:none;
+      border:1px solid var(--btn-border);
+      border-radius: 999px;
+      background: var(--btn-bg);
+      box-shadow: var(--btn-shadow);
+      backdrop-filter: blur(6px);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+      min-height: 34px;
+      max-width: 100%;
+    }
+    .tg-btn:hover, .tg-btn:focus-visible,
     .ig-btn:hover, .ig-btn:focus-visible{
-      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(0,0,0,.28);
+      outline: none;
+    }
+    .tg-btn{ --tg:#229ED9; }
+    .tg-btn:hover, .tg-btn:focus-visible{
+      background: linear-gradient(180deg, #2bb2ff, #229ED9);
+      color:#fff;
+    }
+    .ig-btn{ --ig1:#f09433; --ig2:#e6683c; --ig3:#dc2743; --ig4:#cc2366; --ig5:#bc1888; }
+    .ig-btn:hover, .ig-btn:focus-visible{
+      background: linear-gradient(45deg, var(--ig1) 0%, var(--ig2) 25%, var(--ig3) 50%, var(--ig4) 75%, var(--ig5) 100%);
       color:#fff;
     }
     .tg-btn::before, .ig-btn::before{
@@ -134,12 +134,19 @@
     .tg-btn::before{ background: no-repeat center/contain url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M9.04 15.34 8.9 18.2a1 1 0 0 0 1.6.84l2.29-1.64 3.97 2.9a1 1 0 0 0 1.56-.6l3.11-13.26a1 1 0 0 0-1.36-1.16L2.3 11.1a1 1 0 0 0 .06 1.88l5.54 1.95 9.89-6.2-8.75 6.61Z"/></svg>'); }
     .ig-btn::before{ background: no-repeat center/contain url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.75-2.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg>'); }
 
-    nav[role="navigation"] a { color: #fff; text-decoration: none; font-weight: bold; padding:6px 10px; border-radius:4px; transition: all .3s ease; border:2px solid transparent; position:relative; }
+    nav[role="navigation"] a { color: #fff; margin: 0; text-decoration: none; font-weight: bold; padding:6px 10px; border-radius:4px; transition: all .3s ease; border:2px solid transparent; position:relative; }
     nav[role="navigation"] a:hover, nav[role="navigation"] a:focus-visible { color:#000; background:#ffe600; border-color:#ffe600; }
     nav[role="navigation"] a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:#ffe600;transition:width .25s ease}
     nav[role="navigation"] a:hover::after, nav[role="navigation"] a:focus-visible::after{width:100%}
 
+    #nav-booking { position: relative; padding-right: 60px; }
+    #nav-booking .bus { position: absolute; bottom: -4px; left: -40px; width: 40px; height: 24px; opacity: 0; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 40"><rect x="0" y="10" width="80" height="20" rx="10" ry="10" fill="%23ff3b30"/><rect x="8" y="13" width="12" height="10" rx="2" ry="2" fill="white"/><rect x="24" y="13" width="12" height="10" rx="2" ry="2" fill="white"/><rect x="40" y="13" width="12" height="10" rx="2" ry="2" fill="white"/><rect x="56" y="13" width="12" height="10" rx="2" ry="2" fill="white"/><circle cx="20" cy="32" r="4" fill="black"/><circle cx="60" cy="32" r="4" fill="black"/></svg>') no-repeat center/contain; }
+    #nav-booking:hover .bus, #nav-booking:focus-visible .bus { animation: driveBus 1.7s linear forwards; }
+    @keyframes driveBus { 0%{left:-40px;opacity:1} 100%{left:100%;opacity:0} }
+
+    /* Header controls */
     .utils{ gap: 10px; }
+
     .language-switch{
       position: relative;
       display:inline-flex;
@@ -151,6 +158,7 @@
       backdrop-filter: blur(6px);
       overflow: hidden;
     }
+
     .language-switch::after{
       content:"";
       position:absolute;
@@ -164,6 +172,7 @@
       transition: transform .26s cubic-bezier(.2,.9,.2,1);
       z-index: 0;
     }
+
     .language-switch button{
       position: relative;
       z-index: 1;
@@ -183,17 +192,28 @@
       transition: transform .2s ease, color .2s ease;
       min-height: 40px;
     }
+    .language-switch button:hover,
+    .language-switch button:focus-visible{ color:#fff; outline:none; }
+    .language-switch button:active{ transform: scale(.98); }
+
     .language-switch button[disabled]{ cursor: default; opacity: 1; color: #003737; }
+
     #btn-ru::before, #btn-uk::before{
-      content:""; width: 16px; height: 16px; margin-right: 8px; border-radius: 4px;
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); background: rgba(255,255,255,.6);
+      content:"";
+      width: 16px; height: 16px;
+      margin-right: 8px;
+      border-radius: 4px;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
+      background: rgba(255,255,255,.6);
     }
     #btn-ru::before{ background: linear-gradient(180deg, #ffffff 0%, #dfe7ff 100%); }
     #btn-uk::before{ background: linear-gradient(180deg, #0057b7 0%, #ffd700 100%); }
 
     #themeToggle{
       width: 44px; height: 44px;
-      display:inline-flex; align-items:center; justify-content:center;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,.45);
       background: rgba(255,255,255,.14);
@@ -211,11 +231,15 @@
       background: rgba(255,255,255,.20);
       outline: none;
     }
+    #themeToggle:active{ transform: translateY(0) scale(.98); }
+
+    .dark-mode .language-switch,
+    .dark-mode #themeToggle{ background: rgba(0,0,0,.18); border-color: rgba(255,255,255,.28); }
 
     .dark-mode{background:#1a1a1a;color:#f0f0f0;}
     .dark-mode header{background:#00d4d4;}
     .footer{background:var(--brand);color:#fff;text-align:center;padding:24px;font-weight:bold;font-size:15px}
-    .dark-mode .footer{background:var(--brand);}
+    .dark-mode .footer{background:var(--brand);}    
 
     .section, #top { scroll-margin-top: 100px; }
     .section .container{background:#fff;transition: background-color .18s ease, border-color .18s ease, box-shadow .18s ease;border:1px solid #e9eef2;border-radius:16px;padding:24px;box-shadow:0 8px 28px rgba(0,0,0,.06)}
@@ -243,12 +267,14 @@
       will-change: transform;
     }
     .dark-mode .car-img{border-color:#2a2a2a;box-shadow:0 6px 18px rgba(0,0,0,.6); background:#111}
-    #fleet td{ overflow:hidden; position:relative; }
-    #fleet td:hover .car-img, #fleet .car-img:hover{ transform: translateX(0); }
 
-    .contact-row{display:flex; align-items:center; gap:8px; flex-wrap:wrap; white-space:normal; justify-self:end}
-    nav[role="navigation"]{display:flex; align-items:center; gap:10px; flex-wrap:nowrap; justify-self:start; justify-content:flex-start; overflow:visible; }
-    .utils{ justify-self:end; display:flex; gap:12px; align-items:center}
+    #fleet td{ overflow:hidden; position:relative; }
+    #fleet td:hover .car-img,
+    #fleet .car-img:hover{ transform: translateX(0); }
+
+    .contact-row{grid-area: contacts; display:flex; align-items:center; gap:8px; flex-wrap:wrap; white-space:normal; justify-self:end}
+    nav[role="navigation"]{grid-area: nav; display:flex; align-items:center; gap:10px; flex-wrap:nowrap; justify-self:start; justify-content:flex-start; overflow:visible; }
+    .utils{grid-area: utils; justify-self:end; display:flex; gap:12px; align-items:center}
 
     #services ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
     #services li{background:#fff;border:1px solid #e9eef2;border-radius:12px;padding:12px 14px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
@@ -284,18 +310,32 @@
 
     .hp-wrap{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
 
+    @media (prefers-reduced-motion: reduce){
+      html { scroll-behavior: auto; }
+      #nav-booking .bus{ animation: none !important; }
+      #fleet .car-img{ transition: none !important; transform: none !important; }
+    }
+
     @media (max-width: 768px){
-      header{ position: fixed; top:0; left:0; right:0; z-index:1200; }
+      header{ position: fixed; top:0; left:0; right:0; z-index:1200; transform: translateY(0); transition: transform .22s ease; will-change: transform; }
+      header.is-hidden{ transform: translateY(-110%); }
       body{ padding-top: 72px; }
+
       header .wrap{ grid-template-columns: 1fr; grid-template-areas: "logo utils" "contacts"; row-gap: 6px; padding: 6px 0; }
       .logo-text h1{ font-size: 20px; line-height: 1; }
       .logo-text span{ font-size: 11px; }
+
       .utils{ justify-self:end; gap:6px; }
       .language-switch{ transform: scale(.9); }
       #themeToggle{ width: 36px; height: 36px; min-height: 36px; }
+
       .contact-row{ justify-self: start; flex-wrap: wrap; gap: 6px; }
       .phone, .tg-btn, .ig-btn{ min-height: 32px; padding: 6px 10px 6px 32px; font-size: 13px; }
+      .flag{ font-size: 15px; }
+      .phone::before, .tg-btn::before, .ig-btn::before{ width: 14px; height: 14px; left: 10px; }
+
       nav[role="navigation"]{ display:none; }
+
       .section .container{ padding:14px; border-radius:12px; }
       table{ display:block; overflow-x:auto; -webkit-overflow-scrolling: touch; }
       th, td{ padding:12px; }
@@ -304,6 +344,7 @@
     /* HERO */
     :root{ --page:#f6fafb; --card:#ffffff; --border:#e9eef2; --shadow: 0 10px 30px rgba(0,0,0,.06); }
     body{ background: var(--page); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
     .hero{ padding: 18px 0 8px; }
     .hero .container{ background: linear-gradient(180deg, rgba(0,184,184,.10), rgba(0,184,184,0)); border: 1px solid var(--border); box-shadow: var(--shadow); border-radius: 16px; padding: 0; overflow: hidden; }
     .hero-grid{ display:grid; grid-template-columns: 1.25fr .75fr; gap: 18px; align-items: stretch; padding: 18px; }
@@ -317,10 +358,12 @@
     .btn-secondary-cta{ background:#fff; color:#0b3a3a; }
     .hero-badges{ display:flex; gap:8px; flex-wrap:wrap; }
     .badge{ font-size:12px; padding: 6px 10px; border-radius: 999px; background: rgba(0,184,184,.12); border: 1px solid rgba(0,184,184,.22); }
+
     .hero-card-inner{ height:100%; border-radius: 16px; border: 1px solid var(--border); background:#fff; box-shadow: var(--shadow); padding: 16px; }
     .hero-card-inner h3{ margin: 0 0 6px; }
     .hero-mini{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px; }
     .mini{ display:inline-flex; align-items:center; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--border); text-decoration:none; font-weight: 800; color:#0b3a3a; background:#fff; }
+
     .dark-mode .hero .container{ border-color:#2a2a2a; }
     .dark-mode .hero-card-inner,
     .dark-mode .btn-secondary-cta,
@@ -331,6 +374,7 @@
       .hero-grid{ grid-template-columns: 1fr; padding: 16px; }
       .contact-row{ flex-direction: column; align-items: stretch; gap: 8px; }
       .phone, .tg-btn, .ig-btn{ width: 100%; justify-content: center; box-sizing: border-box; }
+
       #fleet table, #fleet tbody, #fleet tr, #fleet td{ display:block; width:100%; }
       #fleet thead{ display:none; }
       #fleet tr{ border:1px solid var(--border); border-radius: 14px; overflow:hidden; margin:12px 0; box-shadow: 0 8px 22px rgba(0,0,0,.06); background:#fff; }
@@ -340,7 +384,6 @@
     }
   </style>
 </head>
-
 <body>
   <a class="skip-link" href="#main">Перейти к содержимому</a>
   <div id="top"></div>
@@ -374,7 +417,7 @@
           <a href="#top" data-i18n="nav.home">Главная</a>
           <a href="#fleet" data-i18n="nav.fleet">Автопарк</a>
           <a href="#services" data-i18n="nav.services">Услуги</a>
-          <a href="#booking" data-i18n="nav.booking">Бронирование</a>
+          <a href="#booking" id="nav-booking" data-i18n="nav.booking">Бронирование <span class="bus" aria-hidden="true"></span></a>
         </nav>
 
         <div class="utils">
@@ -384,15 +427,15 @@
           </div>
           <button id="themeToggle" type="button" aria-pressed="false" aria-label="Переключить тему">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path fill="currentColor" d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Z"/>
+              <path fill="currentColor" d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16.5a1 1 0 0 1 1 1V4a1 1 0 1 1-2 0V2.5a1 1 0 0 1 1-1ZM12 20a1 1 0 0 1 1 1v1.5a1 1 0 1 1-2 0V21a1 1 0 0 1 1-1Zm10.5-8a1 1 0 0 1-1 1H20a1 1 0 1 1 0-2h1.5a1 1 0 0 1 1 1ZM4 12a1 1 0 0 1-1 1H1.5a1 1 0 1 1 0-2H3a1 1 0 0 1 1 1Zm16.03 6.03a1 1 0 0 1 0 1.41l-1.06 1.06a1 1 0 1 1-1.41-1.41l1.06-1.06a1 1 0 0 1 1.41 0ZM6.44 4.44a1 1 0 0 1 0 1.41L5.38 6.91A1 1 0 0 1 3.97 5.5l1.06-1.06a1 1 0 0 1 1.41 0Zm13.18-1.06a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 1 1-1.41 1.41l-1.06-1.06a1 1 0 0 1 0-1.41ZM4.44 17.56a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 1 1-1.41 1.41L4.44 19a1 1 0 0 1 0-1.41Z"/>
             </svg>
           </button>
         </div>
-
       </div>
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero" aria-label="Короткое описание и быстрые действия">
     <div class="container">
       <div class="hero-grid">
@@ -432,7 +475,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -502,7 +544,6 @@
       <div class="container">
         <p class="kicker" data-i18n="kicker.booking">Бронирование</p>
         <h2 id="booking-title" data-i18n="booking.title">Забронировать поездку</h2>
-
         <form id="bookingForm" onsubmit="handleSubmit(event)" novalidate>
           <div class="hp-wrap" aria-hidden="true">
             <label>Ваш сайт <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
@@ -521,7 +562,6 @@
           <textarea id="comment" name="comment" rows="3" placeholder="Комментарий (дата, время, кол-во пассажиров)" data-i18n-placeholder="form.comment"></textarea>
 
           <button class="btn-primary" type="submit" data-i18n="form.submit">Отправить заявку</button>
-
           <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
             <button class="btn-primary" type="button" id="sendTg" data-i18n="form.tgSend">Отправить в Telegram</button>
           </div>
@@ -572,17 +612,21 @@
   </footer>
 
   <script>
+    // This file avoids regex literals (/.../g) to be safe in strict document.write pipelines.
+
     function addEvt(el, ev, fn){
       if(!el) return;
       if(el.addEventListener) el.addEventListener(ev, fn, false);
       else if(el.attachEvent) el.attachEvent('on'+ev, fn);
     }
+
     function safeTrim(s){
       if(s == null) return "";
       var str = String(s);
       if(str.trim) return str.trim();
       return str.replace(new RegExp('^\\s+|\\s+$','g'), '');
     }
+
     function setClass(el, cls, on){
       if(!el) return;
       if(el.classList){
@@ -593,16 +637,19 @@
       el.className = safeTrim(el.className.replace(re,' '));
       if(on) el.className = safeTrim(el.className + ' ' + cls);
     }
+
     function hasClass(el, cls){
       if(!el) return false;
       if(el.classList) return el.classList.contains(cls);
       return new RegExp('(^|\\s)'+cls+'(\\s|$)').test(el.className);
     }
+
     function onTap(el, handler){
       if(!el) return;
       var touched = false;
       addEvt(el, 'touchend', function(e){
-        touched = true; handler(e);
+        touched = true;
+        handler(e);
         setTimeout(function(){ touched = false; }, 500);
       });
       addEvt(el, 'click', function(e){
@@ -610,6 +657,46 @@
         handler(e);
       });
     }
+
+    // Mobile smart header: hide on scroll down, show on scroll up (<=768px)
+    (function(){
+      var header = document.querySelector('header');
+      if(!header) return;
+
+      function isMobile(){
+        try{ return window.matchMedia && window.matchMedia('(max-width: 768px)').matches; }
+        catch(_){ return (window.innerWidth || 9999) <= 768; }
+      }
+
+      var lastY = 0;
+      var ticking = false;
+      var threshold = 14;
+
+      function show(){ setClass(header, 'is-hidden', false); }
+      function hide(){ setClass(header, 'is-hidden', true); }
+
+      function update(){
+        ticking = false;
+        if(!isMobile()) { show(); return; }
+        var y = 0;
+        try{ y = window.pageYOffset || document.documentElement.scrollTop || 0; }catch(_){ y = 0; }
+        if(y <= 10){ lastY = y; show(); return; }
+        var dy = y - lastY;
+        if(Math.abs(dy) < threshold) return;
+        if(dy > 0) hide(); else show();
+        lastY = y;
+      }
+
+      function onScroll(){
+        if(ticking) return;
+        ticking = true;
+        (window.requestAnimationFrame || function(cb){ return setTimeout(cb, 16); })(update);
+      }
+
+      try{ lastY = window.pageYOffset || document.documentElement.scrollTop || 0; }catch(_){ lastY = 0; }
+      addEvt(window, 'scroll', onScroll);
+      addEvt(window, 'resize', function(){ if(!isMobile()) show(); });
+    })();
 
     var storage = {
       get: function(k){ try{ return localStorage.getItem(k); }catch(_){ return null; } },
@@ -621,8 +708,10 @@
       remove: function(k){ try{ sessionStorage.removeItem(k); }catch(_){ } }
     };
 
+    // Translations (FIXED: no duplicate keys; HERO fully covered)
     var translations = {
       ru: {
+        title: "viTour.bus — Пассажирские перевозки • Трансферы",
         subtitle: "Пассажирские перевозки • Трансферы",
         "nav.home":"Главная","nav.fleet":"Автопарк","nav.services":"Услуги","nav.booking":"Бронирование",
         "kicker.fleet":"Автопарк","kicker.services":"Услуги","kicker.booking":"Бронирование","kicker.reviews":"Отзывы","kicker.faq":"FAQ",
@@ -638,16 +727,29 @@
         "faq.q3":"Можно ли с багажом и животными?","faq.a3":"Да. Укажите размер багажа и наличие питомцев в комментарии — подберём подходящее авто и условия.",
         "faq.q4":"Есть ли детские кресла?","faq.a4":"По запросу предоставляем детские кресла/бустеры. Сообщите возраст ребёнка при оформлении.",
         footer:"© 2025 viTour.bus — Все права защищены",
+
+        // HERO
         "hero.kicker":"ТРАНСФЕРЫ • МЕЖГОРОД • АЭРОПОРТ",
         "hero.title":"viTour.bus — пассажирские перевозки 24/7",
         "hero.sub":"Седаны, минивэны, микроавтобусы и автобусы. Встреча с табличкой, багаж, детские кресла по запросу.",
-        "hero.p1":"Быстрое бронирование","hero.p2":"Фиксированная цена до поездки","hero.p3":"Чистые авто и опытные водители",
-        "hero.call1":"Позвонить UA","hero.call2":"Позвонить UA 2","hero.call3":"Позвонить MD","hero.cta":"Оставить заявку",
-        "hero.b1":"Одесса","hero.b2":"Украина","hero.b3":"Межгород",
-        "hero.cardTitle":"Быстрый заказ","hero.cardSub":"Напиши маршрут и время — ответим с ценой.",
-        "hero.m1":"Услуги","hero.m2":"Автопарк","hero.m3":"Форма"
+        "hero.p1":"Быстрое бронирование",
+        "hero.p2":"Фиксированная цена до поездки",
+        "hero.p3":"Чистые авто и опытные водители",
+        "hero.call1":"Позвонить UA",
+        "hero.call2":"Позвонить UA 2",
+        "hero.call3":"Позвонить MD",
+        "hero.cta":"Оставить заявку",
+        "hero.b1":"Одесса",
+        "hero.b2":"Украина",
+        "hero.b3":"Межгород",
+        "hero.cardTitle":"Быстрый заказ",
+        "hero.cardSub":"Напиши маршрут и время — ответим с ценой.",
+        "hero.m1":"Услуги",
+        "hero.m2":"Автопарк",
+        "hero.m3":"Форма"
       },
       uk: {
+        title: "viTour.bus — Пасажирські перевезення • Трансфери",
         subtitle: "Пасажирські перевезення • Трансфери",
         "nav.home":"Головна","nav.fleet":"Автопарк","nav.services":"Послуги","nav.booking":"Бронювання",
         "kicker.fleet":"Автопарк","kicker.services":"Послуги","kicker.booking":"Бронювання","kicker.reviews":"Відгуки","kicker.faq":"FAQ",
@@ -663,16 +765,39 @@
         "faq.q3":"Чи можна з багажем і тваринами?","faq.a3":"Так. Вкажіть розмір багажу та наявність улюбленців у коментарі — підберемо відповідне авто та умови.",
         "faq.q4":"Чи є дитячі крісла?","faq.a4":"За запитом надаємо дитячі крісла/бустери. Повідомте вік дитини при оформленні.",
         footer:"© 2025 viTour.bus — Усі права захищені",
+
+        // HERO
         "hero.kicker":"ТРАНСФЕРИ • МІЖМІСТО • АЕРОПОРТ",
         "hero.title":"viTour.bus — пасажирські перевезення 24/7",
         "hero.sub":"Седани, мінівени, мікроавтобуси та автобуси. Зустріч з табличкою, багаж, дитячі крісла за запитом.",
-        "hero.p1":"Швидке бронювання","hero.p2":"Фіксована ціна до поїздки","hero.p3":"Чисті авто та досвідчені водії",
-        "hero.call1":"Подзвонити UA","hero.call2":"Подзвонити UA 2","hero.call3":"Подзвонити MD","hero.cta":"Залишити заявку",
-        "hero.b1":"Одеса","hero.b2":"Україна","hero.b3":"Міжмісто",
-        "hero.cardTitle":"Швидке замовлення","hero.cardSub":"Напиши маршрут і час — відповімо з ціною.",
-        "hero.m1":"Послуги","hero.m2":"Автопарк","hero.m3":"Форма"
+        "hero.p1":"Швидке бронювання",
+        "hero.p2":"Фіксована ціна до поїздки",
+        "hero.p3":"Чисті авто та досвідчені водії",
+        "hero.call1":"Подзвонити UA",
+        "hero.call2":"Подзвонити UA 2",
+        "hero.call3":"Подзвонити MD",
+        "hero.cta":"Залишити заявку",
+        "hero.b1":"Одеса",
+        "hero.b2":"Україна",
+        "hero.b3":"Міжмісто",
+        "hero.cardTitle":"Швидке замовлення",
+        "hero.cardSub":"Напиши маршрут і час — відповімо з ціною.",
+        "hero.m1":"Послуги",
+        "hero.m2":"Автопарк",
+        "hero.m3":"Форма"
       }
     };
+
+    // ✅ NEW: detect if ?lang was explicitly present in the initial URL
+    var urlLang = null;
+    window.__langParamWasInUrl = false;
+    try{
+      if(window.location && window.location.search && window.URLSearchParams){
+        var sp = new URLSearchParams(window.location.search);
+        urlLang = sp.get('lang');
+        window.__langParamWasInUrl = sp.has('lang');
+      }
+    }catch(_){ }
 
     function setLanguage(lang){
       var t = translations[lang] || translations.ru;
@@ -685,7 +810,15 @@
         var key = el.getAttribute('data-i18n');
         var val = t[key];
         if(val == null) continue;
-        el.textContent = val;
+
+        if(el.id === 'nav-booking'){
+          var bus = el.querySelector('.bus');
+          while (el.firstChild) el.removeChild(el.firstChild);
+          el.appendChild(document.createTextNode(val + ' '));
+          if(bus) el.appendChild(bus);
+        } else {
+          el.textContent = val;
+        }
       }
 
       els = document.querySelectorAll('[data-i18n-placeholder]');
@@ -695,6 +828,8 @@
         var pval = t[pkey];
         if(pval != null) pel.placeholder = pval;
       }
+
+      if(t.title){ document.title = t.title; }
 
       var br = document.getElementById('btn-ru');
       var bu = document.getElementById('btn-uk');
@@ -706,10 +841,15 @@
 
       storage.set('lang', lang);
 
+      // ✅ FIX: keep clean URL (no ?lang) unless it was explicitly in the initial URL
       try{
         if(window.URL && window.location && window.history && window.history.replaceState){
           var u = new URL(window.location.href);
-          u.searchParams.set('lang', lang);
+          if(window.__langParamWasInUrl){
+            u.searchParams.set('lang', lang);
+          } else {
+            u.searchParams.delete('lang');
+          }
           window.history.replaceState(null,'',u.toString());
         }
       }catch(_){ }
@@ -718,17 +858,21 @@
     onTap(document.getElementById('btn-ru'), function(){ setLanguage('ru'); });
     onTap(document.getElementById('btn-uk'), function(){ setLanguage('uk'); });
 
-    var urlLang = null;
-    try{
-      if(window.location && window.location.search && window.URLSearchParams){
-        var sp = new URLSearchParams(window.location.search);
-        urlLang = sp.get('lang');
-      }
-    }catch(_){ }
     var savedLang = storage.get('lang') || 'ru';
     var initLang = (urlLang === 'uk' || urlLang === 'ru') ? urlLang : savedLang;
     setLanguage(initLang);
 
+    // Anti-spam timer
+    sstorage.set('form_started_ts', String(Date.now()));
+    var formEl = document.getElementById('bookingForm');
+    if(formEl){
+      var markStart = function(){ if(!sstorage.get('form_started_ts')) sstorage.set('form_started_ts', String(Date.now())); };
+      addEvt(formEl,'focusin',markStart);
+      addEvt(formEl,'input',markStart);
+      addEvt(formEl,'change',markStart);
+    }
+
+    // Theme
     (function(){
       var btn = document.getElementById('themeToggle');
       if(!btn) return;
@@ -739,6 +883,14 @@
       function setTheme(isDark){
         setClass(document.body, 'dark-mode', !!isDark);
         setClass(document.documentElement, 'dark-mode', !!isDark);
+
+        var svg = btn.querySelector('svg');
+        if(svg){
+          svg.innerHTML = isDark
+            ? '<path fill="currentColor" d="M21 14.5A8.5 8.5 0 0 1 9.5 3a1 1 0 0 0-1.2 1.2A6.5 6.5 0 1 0 19.8 15.7a1 1 0 0 0 1.2-1.2Z"/>'
+            : '<path fill="currentColor" d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16.5a1 1 0 0 1 1 1V4a1 1 0 1 1-2 0V2.5a1 1 0 0 1 1-1ZM12 20a1 1 0 0 1 1 1v1.5a1 1 0 1 1-2 0V21a1 1 0 0 1 1-1Zm10.5-8a1 1 0 0 1-1 1H20a1 1 0 1 1 0-2h1.5a1 1 0 0 1 1 1ZM4 12a1 1 0 0 1-1 1H1.5a1 1 0 1 1 0-2H3a1 1 0 0 1 1 1Zm16.03 6.03a1 1 0 0 1 0 1.41l-1.06 1.06a1 1 0 1 1-1.41-1.41l1.06-1.06a1 1 0 0 1 1.41 0ZM6.44 4.44a1 1 0 0 1 0 1.41L5.38 6.91A1 1 0 0 1 3.97 5.5l1.06-1.06a1 1 0 0 1 1.41 0Zm13.18-1.06a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 1 1-1.41 1.41l-1.06-1.06a1 1 0 0 1 0-1.41ZM4.44 17.56a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 1 1-1.41 1.41L4.44 19a1 1 0 0 1 0-1.41Z"/>';
+        }
+
         btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
         storage.set('theme', isDark ? 'dark' : 'light');
         setMeta(isDark);
@@ -750,10 +902,9 @@
       var initialDark = stored ? (stored === 'dark') : prefersDark;
 
       setTheme(initialDark);
+
       onTap(btn, function(){ setTheme(!hasClass(document.body, 'dark-mode')); });
     })();
-
-    sstorage.set('form_started_ts', String(Date.now()));
 
     function handleSubmit(e){
       e.preventDefault();
@@ -779,22 +930,18 @@
       sstorage.remove('form_started_ts');
     }
 
-    // Schema.org
+    // JSON-LD Organization (UPDATED: all phones + correct domain)
     (function(){
       try{
         var org = {
           "@context":"https://schema.org",
           "@type":"TaxiService",
           "name":"viTour.bus",
-          "url":"https://vitourbus.com/",
+          "url":"https://vitourbus.com",
           "telephone":["+380933142885","+380987020220","+37360577130"],
           "areaServed":["UA","MD"],
           "sameAs":["https://t.me/seredaa_v","https://instagram.com/vitour.bus"],
-          "openingHoursSpecification":[{
-            "@type":"OpeningHoursSpecification",
-            "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-            "opens":"00:00","closes":"23:59"
-          }]
+          "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}]
         };
         var ld = document.createElement('script');
         ld.type='application/ld+json';
@@ -831,6 +978,59 @@
         try{ if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(lines).catch(function(){}); } }catch(_){ }
         try{ window.open('https://t.me/seredaa_v', '_blank', 'noopener'); }catch(_){ }
       });
+    })();
+
+    // Smooth-scroll for data-scroll-to (NO regex literals)
+    (function(){
+      function shouldBypass(e){ return e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0; }
+      function isExternalHref(href){
+        href = safeTrim(href).toLowerCase();
+        if(!href) return false;
+        return (href.indexOf('http://')===0 || href.indexOf('https://')===0 || href.indexOf('tel:')===0 || href.indexOf('mailto:')===0);
+      }
+
+      var list = document.querySelectorAll('[data-scroll-to]');
+      for(var i=0;i<list.length;i++){
+        (function(el){
+          addEvt(el,'click',function(e){
+            if(shouldBypass(e)) return;
+            if(el.tagName === 'A'){
+              var href = el.getAttribute('href') || '';
+              if(el.target === '_blank' || isExternalHref(href)) return;
+            }
+
+            var sel = el.getAttribute('data-scroll-to');
+            var target = sel ? document.querySelector(sel) : null;
+            if(!target) return;
+            if(e.preventDefault) e.preventDefault();
+
+            try{ target.scrollIntoView({behavior:'smooth', block:'start'}); }catch(_){ target.scrollIntoView(true); }
+          });
+        })(list[i]);
+      }
+    })();
+
+    /* Tiny self-tests */
+    (function(){
+      try{
+        var ls = document.querySelector('.language-switch');
+        if(ls){
+          setLanguage('ru');
+          if(ls.style.getPropertyValue('--lang-x') !== '0%') throw new Error('Lang slider RU should be 0%');
+          setLanguage('uk');
+          if(ls.style.getPropertyValue('--lang-x') !== '100%') throw new Error('Lang slider UK should be 100%');
+        }
+
+        var sample = ['https://a.com','http://a.com','tel:+380','mailto:test@a.com','#booking','/path'];
+        var expected = [true,true,true,true,false,false];
+        for(var i=0;i<sample.length;i++){
+          var h = safeTrim(sample[i]).toLowerCase();
+          var got = (h.indexOf('http://')===0 || h.indexOf('https://')===0 || h.indexOf('tel:')===0 || h.indexOf('mailto:')===0);
+          if(got !== expected[i]) throw new Error('External href test failed: '+sample[i]);
+        }
+      }catch(err){
+        try{ console.warn('[Self-tests]', err); }catch(_){ }
+      }
     })();
   </script>
 </body>
