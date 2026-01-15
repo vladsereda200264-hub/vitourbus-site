@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <script>
+  (function () {
+    if (location.hostname.includes('github.io')) {
+      var m = document.createElement('meta');
+      m.name = 'robots';
+      m.content = 'noindex, follow';
+      document.head.appendChild(m);
+    }
+  })();
+</script>
   <meta charset="UTF-8" />
   <meta name="google-site-verification" content="AgKVAeretnPEEJHek1HQkjIlqXaY5O3Qlo3atFmuOro" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
