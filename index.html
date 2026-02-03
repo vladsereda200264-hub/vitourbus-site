@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <link rel="icon" href="/favicon-32x32.png">
-<link rel="canonical" href="https://vitourbus.com/">
+  <link rel="canonical" href="https://vitourbus.com/">
   <meta charset="UTF-8" />
   <meta name="google-site-verification" content="AgKVAeretnPEEJHek1HQkjIlqXaY5O3Qlo3atFmuOro" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,14 +17,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://vitourbus.com/og.jpg" />
   <meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta name="twitter:image" content="https://vitourbus.com/og.jpg" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:image" content="https://vitourbus.com/og.jpg" />
   <meta property="og:url" content="https://vitourbus.com/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#00b8b8" />
 
   <!-- ✅ SEO: canonical + hreflang -->
-  <link rel="canonical" href="https://vitourbus.com/" />
   <link rel="alternate" href="https://vitourbus.com/?lang=ru" hreflang="ru-UA" />
   <link rel="alternate" href="https://vitourbus.com/?lang=uk" hreflang="uk-UA" />
   <link rel="alternate" href="https://vitourbus.com/" hreflang="x-default" />
@@ -484,6 +483,28 @@
     </div>
   </section>
 
+  <!-- SEO TEXT BLOCK (ADDED) -->
+  <section class="section" id="seo-text" aria-label="О компании и направлениях">
+    <div class="container">
+      <p class="kicker" data-i18n="kicker.seo">О нас</p>
+      <h2 data-i18n="seo.title">Трансферы и пассажирские перевозки по Украине и в Молдову</h2>
+
+      <p data-i18n="seo.p1">
+        viTour.bus — это комфортные трансферы 24/7: городские поездки, межгород, встречи в аэропорту и поездки на отдых.
+        Подбираем авто под задачу: седан, минивэн, микроавтобус или автобус. Цена фиксируется до выезда — без сюрпризов.
+      </p>
+
+      <p data-i18n="seo.p2">
+        Работаем по направлениям: Одесса и область, межгород по Украине, а также поездки в Молдову.
+        Можно с багажом, детскими креслами и питомцами (по запросу) — просто укажите детали в заявке.
+      </p>
+
+      <p style="margin:0" data-i18n="seo.p3">
+        Чтобы узнать стоимость — оставьте заявку в форме ниже или напишите в Telegram: ответим с ценой и подтвердим бронь.
+      </p>
+    </div>
+  </section>
+
   <main id="main">
     <section class="section" id="fleet" aria-labelledby="fleet-title">
       <div class="container">
@@ -610,6 +631,32 @@
         <p data-i18n="reviews.item2">«Ездили в Болгарию — отличный сервис!» — Игорь</p>
       </div>
     </section>
+
+    <!-- POPULAR ROUTES (ADDED) -->
+    <section class="section" id="routes" aria-label="Популярные маршруты">
+      <div class="container">
+        <p class="kicker" data-i18n="kicker.routes">Маршруты</p>
+        <h2 data-i18n="routes.title">Популярные направления</h2>
+
+        <p style="margin-top:0" data-i18n="routes.sub">
+          Часто заказывают трансферы и межгород. Оставьте заявку — рассчитаем стоимость под ваш маршрут.
+        </p>
+
+        <ul style="margin:0; padding-left:18px; columns:2; column-gap:28px">
+          <li><a href="#booking" data-scroll-to="#booking" data-i18n="routes.r1">Одесса → Аэропорт (по запросу)</a></li>
+          <li><a href="#booking" data-scroll-to="#booking" data-i18n="routes.r2">Одесса → Киев</a></li>
+          <li><a href="#booking" data-scroll-to="#booking" data-i18n="routes.r3">Одесса → Львов</a></li>
+          <li><a href="#booking" data-scroll-to="#booking" data-i18n="routes.r4">Одесса → Днепр</a></li>
+          <li><a href="#booking" data-scroll-to="#booking" data-i18n="routes.r5">Одесса → Кишинёв (Молдова)</a></li>
+          <li><a href="#booking" data-scroll-to="#booking" data-i18n="routes.r6">Одесса → Болгария/Румыния (по запросу)</a></li>
+        </ul>
+
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn btn-secondary-cta" href="#fleet" data-scroll-to="#fleet" data-i18n="routes.cta1">Посмотреть автопарк</a>
+          <a class="btn btn-primary-cta" href="#booking" data-scroll-to="#booking" data-i18n="routes.cta2">Рассчитать цену</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -713,7 +760,7 @@
       remove: function(k){ try{ sessionStorage.removeItem(k); }catch(_){ } }
     };
 
-    // Translations (FIXED: no duplicate keys; HERO fully covered)
+    // Translations (UPDATED: SEO + ROUTES added)
     var translations = {
       ru: {
         title: "viTour.bus — Пассажирские перевозки • Трансферы",
@@ -751,7 +798,27 @@
         "hero.cardSub":"Напиши маршрут и время — ответим с ценой.",
         "hero.m1":"Услуги",
         "hero.m2":"Автопарк",
-        "hero.m3":"Форма"
+        "hero.m3":"Форма",
+
+        // SEO TEXT
+        "kicker.seo":"О нас",
+        "seo.title":"Трансферы и пассажирские перевозки по Украине и в Молдову",
+        "seo.p1":"viTour.bus — это комфортные трансферы 24/7: городские поездки, межгород, встречи в аэропорту и поездки на отдых. Подбираем авто под задачу: седан, минивэн, микроавтобус или автобус. Цена фиксируется до выезда — без сюрпризов.",
+        "seo.p2":"Работаем по направлениям: Одесса и область, межгород по Украине, а также поездки в Молдову. Можно с багажом, детскими креслами и питомцами (по запросу) — просто укажите детали в заявке.",
+        "seo.p3":"Чтобы узнать стоимость — оставьте заявку в форме ниже или напишите в Telegram: ответим с ценой и подтвердим бронь.",
+
+        // ROUTES
+        "kicker.routes":"Маршруты",
+        "routes.title":"Популярные направления",
+        "routes.sub":"Часто заказывают трансферы и межгород. Оставьте заявку — рассчитаем стоимость под ваш маршрут.",
+        "routes.r1":"Одесса → Аэропорт (по запросу)",
+        "routes.r2":"Одесса → Киев",
+        "routes.r3":"Одесса → Львов",
+        "routes.r4":"Одесса → Днепр",
+        "routes.r5":"Одесса → Кишинёв (Молдова)",
+        "routes.r6":"Одесса → Болгария/Румыния (по запросу)",
+        "routes.cta1":"Посмотреть автопарк",
+        "routes.cta2":"Рассчитать цену"
       },
       uk: {
         title: "viTour.bus — Пасажирські перевезення • Трансфери",
@@ -789,7 +856,27 @@
         "hero.cardSub":"Напиши маршрут і час — відповімо з ціною.",
         "hero.m1":"Послуги",
         "hero.m2":"Автопарк",
-        "hero.m3":"Форма"
+        "hero.m3":"Форма",
+
+        // SEO TEXT
+        "kicker.seo":"Про нас",
+        "seo.title":"Трансфери та пасажирські перевезення по Україні та в Молдову",
+        "seo.p1":"viTour.bus — це комфортні трансфери 24/7: поїздки містом, міжмісто, зустріч в аеропорту та поїздки на відпочинок. Підбираємо авто під задачу: седан, мінівен, мікроавтобус або автобус. Ціна фіксується до виїзду — без сюрпризів.",
+        "seo.p2":"Працюємо за напрямками: Одеса та область, міжмісто по Україні, а також поїздки в Молдову. Можна з багажем, дитячими кріслами та улюбленцями (за запитом) — просто вкажіть деталі в заявці.",
+        "seo.p3":"Щоб дізнатися вартість — залиште заявку у формі нижче або напишіть у Telegram: відповімо з ціною та підтвердимо бронювання.",
+
+        // ROUTES
+        "kicker.routes":"Маршрути",
+        "routes.title":"Популярні напрямки",
+        "routes.sub":"Часто замовляють трансфери та міжмісто. Залиште заявку — порахуємо вартість під ваш маршрут.",
+        "routes.r1":"Одеса → Аеропорт (за запитом)",
+        "routes.r2":"Одеса → Київ",
+        "routes.r3":"Одеса → Львів",
+        "routes.r4":"Одеса → Дніпро",
+        "routes.r5":"Одеса → Кишинів (Молдова)",
+        "routes.r6":"Одеса → Болгарія/Румунія (за запитом)",
+        "routes.cta1":"Подивитись автопарк",
+        "routes.cta2":"Розрахувати ціну"
       }
     };
 
@@ -893,7 +980,7 @@
         if(svg){
           svg.innerHTML = isDark
             ? '<path fill="currentColor" d="M21 14.5A8.5 8.5 0 0 1 9.5 3a1 1 0 0 0-1.2 1.2A6.5 6.5 0 1 0 19.8 15.7a1 1 0 0 0 1.2-1.2Z"/>'
-            : '<path fill="currentColor" d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16.5a1 1 0 0 1 1 1V4a1 1 0 1 1-2 0V2.5a1 1 0 0 1 1-1ZM12 20a1 1 0 0 1 1 1v1.5a1 1 0 1 1-2 0V21a1 1 0 0 1 1-1Zm10.5-8a1 1 0 0 1-1 1H20a1 1 0 1 1 0-2h1.5a1 1 0 0 1 1 1ZM4 12a1 1 0 0 1-1 1H1.5a1 1 0 1 1 0-2H3a1 1 0 0 1 1 1Zm16.03 6.03a1 1 0 0 1 0 1.41l-1.06 1.06a1 1 0 1 1-1.41-1.41l1.06-1.06a1 1 0 0 1 1.41 0ZM6.44 4.44a1 1 0 0 1 0 1.41L5.38 6.91A1 1 0 0 1 3.97 5.5l1.06-1.06a1 1 0 0 1 1.41 0Zm13.18-1.06a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 1 1-1.41 1.41l-1.06-1.06a1 1 0 0 1 0-1.41ZM4.44 17.56a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 1 1-1.41 1.41L4.44 19a1 1 0 0 1 0-1.41Z"/>';
+            : '<path fill="currentColor" d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16.5a1 1 0 0 1 1 1V4a1 1 0 1 1-2 0V2.5a1 1 0 0 1 1-1ZM12 20a1 1 0 0 1 1 1v1.5a1 1 0 1 1-2 0V21a1 1 0 0 1 1-1Zm10.5-8a1 1 0 0 1-1 1H20a1 1 0 1 1 0-2h1.5a1 1 0 0 1 1 1ZM4 12a1 1 0 0 1-1 1H1.5a1 1 0 1 1 0-2H3a1 1 0 0 1 1 1Zm16.03 6.03a1 1 0 0 1 0 1.41l-1.06 1.06a1 1 0 0 1-1.41-1.41l1.06-1.06a1 1 0 0 1 1.41 0ZM6.44 4.44a1 1 0 0 1 0 1.41L5.38 6.91A1 1 0 0 1 3.97 5.5l1.06-1.06a1 1 0 0 1 1.41 0Zm13.18-1.06a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 1 1-1.41 1.41l-1.06-1.06a1 1 0 0 1 0-1.41ZM4.44 17.56a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 1 1-1.41 1.41L4.44 19a1 1 0 0 1 0-1.41Z"/>';
         }
 
         btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
@@ -1036,6 +1123,47 @@
       }catch(err){
         try{ console.warn('[Self-tests]', err); }catch(_){ }
       }
+    })();
+
+    // FAQ JSON-LD (ADDED: auto from translations + current lang)
+    (function(){
+      try{
+        var lang = (document.documentElement.lang === 'uk') ? 'uk' : 'ru';
+        var t = (translations && translations[lang]) ? translations[lang] : (translations ? translations.ru : null);
+        if(!t) return;
+
+        var faq = {
+          "@context":"https://schema.org",
+          "@type":"FAQPage",
+          "mainEntity":[
+            {
+              "@type":"Question",
+              "name": t["faq.q1"] || "Как забронировать поездку?",
+              "acceptedAnswer":{"@type":"Answer","text": t["faq.a1"] || ""}
+            },
+            {
+              "@type":"Question",
+              "name": t["faq.q2"] || "Нужна ли предоплата?",
+              "acceptedAnswer":{"@type":"Answer","text": t["faq.a2"] || ""}
+            },
+            {
+              "@type":"Question",
+              "name": t["faq.q3"] || "Можно ли с багажом и животными?",
+              "acceptedAnswer":{"@type":"Answer","text": t["faq.a3"] || ""}
+            },
+            {
+              "@type":"Question",
+              "name": t["faq.q4"] || "Есть ли детские кресла?",
+              "acceptedAnswer":{"@type":"Answer","text": t["faq.a4"] || ""}
+            }
+          ]
+        };
+
+        var ld = document.createElement('script');
+        ld.type = 'application/ld+json';
+        ld.textContent = JSON.stringify(faq);
+        document.head.appendChild(ld);
+      }catch(_){}
     })();
   </script>
 </body>
