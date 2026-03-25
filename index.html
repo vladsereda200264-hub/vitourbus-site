@@ -1,4 +1,546 @@
 <!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>viTour.bus — Premium</title>
+  <meta name="description" content="viTour.bus — пассажирские перевозки, трансферы, корпоративная развозка сотрудников.">
+  <style>
+    :root{
+      --brand:#00c2c7;
+      --brand-dark:#00979b;
+      --accent:#dffcff;
+      --bg:#f4fbfc;
+      --fg:#17333a;
+      --muted:#58727a;
+      --card:#ffffff;
+      --border:#d9edf0;
+      --shadow:0 14px 40px rgba(0,58,64,.10);
+      --radius:20px;
+      --focus:#ffe600;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(0,194,199,.10), transparent 28%),
+        linear-gradient(180deg, #f7fcfd 0%, #eef8f9 100%);
+      color:var(--fg);
+    }
+    .container{max-width:1180px;margin:0 auto;padding:0 18px}
+    .skip-link{position:absolute;left:-9999px}
+    .skip-link:focus{left:10px;top:10px;background:var(--focus);color:#000;padding:6px 10px;border-radius:8px;z-index:9999}
+    :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(0,194,199,.82);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.45);
+      box-shadow:0 10px 30px rgba(0,72,78,.12);
+    }
+    header .wrap{
+      display:grid;
+      grid-template-columns:1fr auto;
+      grid-template-areas:"logo contacts" "nav utils";
+      align-items:center;
+      column-gap:12px;
+      row-gap:8px;
+      padding:14px 0;
+    }
+    .logo-text{text-decoration:none;color:#fff;grid-area:logo}
+    .logo-text h1{margin:0;font-size:27px;letter-spacing:-.02em}
+    .logo-text span{font-size:13px;display:block;opacity:.95}
+    .header-right{display:contents}
+    .contact-row{grid-area:contacts;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-self:end}
+    nav[role="navigation"]{grid-area:nav;display:flex;gap:10px;flex-wrap:wrap}
+    nav[role="navigation"] a{
+      color:#fff;text-decoration:none;font-weight:800;
+      padding:8px 12px;border-radius:999px;border:1px solid transparent;
+      transition:.2s ease;
+    }
+    nav[role="navigation"] a:hover,nav[role="navigation"] a:focus-visible{
+      color:#084246;background:#fff;border-color:#fff;
+    }
+    .utils{grid-area:utils;display:flex;gap:12px;align-items:center;justify-self:end}
+    .chip{
+      position:relative;
+      z-index:5;
+      display:inline-flex;align-items:center;gap:6px;
+      padding:8px 12px;
+      font-weight:800;font-size:14px;color:#fff;text-decoration:none;
+      border:1px solid rgba(255,255,255,.48);
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      box-shadow:0 8px 18px rgba(0,0,0,.10);
+      backdrop-filter:blur(8px);
+      transition:.2s ease;
+    }
+    .chip:hover,.chip:focus-visible{transform:translateY(-1px);background:rgba(255,255,255,.22)}
+    .language-switch{
+      position:relative;display:inline-flex;padding:3px;border-radius:999px;
+      background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.42);overflow:hidden
+    }
+    .language-switch::after{
+      content:"";position:absolute;top:3px;left:3px;width:calc(50% - 3px);height:calc(100% - 6px);
+      border-radius:999px;background:#fff;transform:translateX(var(--lang-x,0%));transition:.25s ease;z-index:0
+    }
+    .language-switch button{
+      position:relative;z-index:1;border:0;background:transparent;color:#fff;font-weight:900;
+      padding:8px 12px;border-radius:999px;cursor:pointer;min-width:58px
+    }
+    .language-switch button[disabled]{color:#0b5558}
+    #themeToggle{
+      width:42px;height:42px;border-radius:999px;border:1px solid rgba(255,255,255,.42);
+      background:rgba(255,255,255,.16);color:#fff;cursor:pointer
+    }
+
+    .hero,.section{padding:18px 0}
+    .panel{
+      background:rgba(255,255,255,.88);
+      border:1px solid var(--border);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+    }
+    .hero .panel{
+      background:
+        radial-gradient(circle at top left, rgba(0,194,199,.12), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.90));
+      overflow:hidden;
+    }
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;padding:28px}
+    .hero-title{margin:8px 0 10px;font-size:clamp(30px,4vw,50px);line-height:1.02;letter-spacing:-.03em}
+    .hero-sub{margin:0 0 14px;color:var(--muted);font-size:17px;max-width:62ch}
+    .hero-points{margin:0 0 16px;padding-left:20px}
+    .hero-points li{margin:6px 0}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 18px;border-radius:14px;
+      text-decoration:none;font-weight:800;border:1px solid transparent;
+      transition:.2s ease;box-shadow:0 10px 24px rgba(0,0,0,.06)
+    }
+    .btn-primary-cta,.btn-primary{
+      background:linear-gradient(180deg,var(--brand),var(--brand-dark));
+      color:#fff;
+    }
+    .btn-secondary-cta{
+      background:#fff;color:#0b464a;border-color:var(--border)
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .hero-badges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{
+      font-size:12px;padding:7px 11px;border-radius:999px;
+      background:var(--accent);border:1px solid #bcecef;color:#0a5257;font-weight:700
+    }
+    .hero-card-inner{
+      height:100%;
+      background:linear-gradient(180deg,#ffffff,#f8ffff);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+    .hero-card-inner h3{margin:0 0 8px;font-size:24px}
+    .hero-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+    .mini{
+      display:flex;align-items:center;justify-content:center;
+      padding:12px 10px;border-radius:14px;border:1px solid var(--border);
+      text-decoration:none;font-weight:800;color:#0b4b50;background:#fff;
+      min-height:52px
+    }
+
+    .section .panel{padding:26px}
+    .kicker{
+      margin:0 0 8px;text-transform:uppercase;letter-spacing:.14em;font-size:12px;
+      color:var(--brand-dark);font-weight:800
+    }
+    .section h2{margin:0 0 18px;font-size:30px;line-height:1.08;letter-spacing:-.02em}
+    .section h2::after{
+      content:"";display:block;width:90px;height:4px;border-radius:999px;
+      background:linear-gradient(90deg,var(--brand),#65eaee);margin-top:10px
+    }
+    .section-sep{
+      height:14px;border-radius:999px;
+      background:linear-gradient(90deg,transparent,rgba(0,194,199,.35),transparent);
+      margin:12px auto 2px;max-width:1180px
+    }
+
+    .b2b-grid{
+      margin-top:18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px
+    }
+    .b2b-item{
+      display:flex;align-items:center;gap:10px;
+      padding:14px 14px;border:1px solid var(--border);border-radius:16px;
+      background:linear-gradient(180deg,#fff,#f8ffff);font-weight:800;color:#144247
+    }
+    .b2b-item::before{
+      content:"✓";width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;
+      border-radius:999px;background:var(--brand);color:#fff;font-size:13px;flex:0 0 22px
+    }
+
+    .fleet-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .fleet-card{
+      display:grid;grid-template-columns:220px 1fr;gap:18px;align-items:center;
+      padding:18px;border:1px solid var(--border);border-radius:20px;
+      background:linear-gradient(180deg,#fff,#f9ffff);box-shadow:var(--shadow)
+    }
+    .fleet-media{
+      background:linear-gradient(180deg,#ffffff,#f4fbfc);
+      border:1px solid var(--border);border-radius:18px;padding:10px;display:flex;align-items:center;justify-content:center;
+      min-height:150px
+    }
+    .car-img{
+      width:100%;max-width:220px;height:auto;display:block;object-fit:contain
+    }
+    .fleet-name{margin:0 0 10px;font-size:24px;line-height:1.1}
+    .fleet-models{color:var(--muted);margin:0 0 12px;font-weight:600}
+    .fleet-meta{display:flex;gap:10px;flex-wrap:wrap}
+    .fleet-pill{
+      display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;
+      background:var(--accent);border:1px solid #bcecef;color:#0a5257;font-weight:800
+    }
+
+    #services ul{
+      list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px
+    }
+    #services li{
+      background:linear-gradient(180deg,#fff,#f9ffff);
+      border:1px solid var(--border);border-radius:16px;padding:14px 16px;font-weight:700
+    }
+
+    form{
+      background:linear-gradient(180deg,#fff,#fbffff);
+      border:1px solid var(--border);border-radius:18px;padding:18px
+    }
+    form label{display:block;font-size:13px;margin:10px 0 6px;font-weight:700}
+    form input,form textarea{
+      width:100%;padding:12px 13px;border:1px solid #cfe7ea;border-radius:12px;font:inherit;background:#fff
+    }
+    .btn-primary{margin-top:10px}
+
+    .faq .item{
+      border:1px solid var(--border);border-radius:16px;margin:12px 0;background:#fff;overflow:hidden
+    }
+    .faq summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:800}
+    .faq .content{padding:0 18px 18px;color:var(--muted)}
+
+    .reviews p{
+      background:linear-gradient(180deg,#fff,#f9ffff);
+      border:1px solid var(--border);border-radius:16px;padding:14px 16px;margin:10px 0
+    }
+
+    .footer{
+      background:linear-gradient(180deg,var(--brand),var(--brand-dark));
+      color:#fff;text-align:center;padding:26px;font-weight:800;font-size:15px;margin-top:16px
+    }
+
+    .dark-mode{
+      --bg:#13191b;--fg:#ecf7f8;--muted:#a4c1c5;--card:#1a2124;--border:#2a363a;--shadow:0 16px 40px rgba(0,0,0,.34);
+      background:linear-gradient(180deg,#111618,#172023)
+    }
+    .dark-mode .panel,.dark-mode .hero-card-inner,.dark-mode form,.dark-mode .faq .item,.dark-mode #services li,.dark-mode .reviews p,.dark-mode .mini,.dark-mode .b2b-item,.dark-mode .fleet-card,.dark-mode .fleet-media{
+      background:#1a2124;color:#ecf7f8;border-color:#2a363a
+    }
+    .dark-mode .fleet-media{background:#151b1e}
+    .dark-mode .fleet-models{color:#a4c1c5}
+    .dark-mode .fleet-pill{background:#193438;border-color:#2b5d63;color:#bff8fb}
+    .dark-mode .btn-secondary-cta{background:#1d2629;color:#ecf7f8;border-color:#2a363a}
+    .dark-mode input,.dark-mode textarea{background:#111618;color:#ecf7f8;border-color:#355056}
+    .dark-mode .badge{background:#193438;border-color:#2b5d63;color:#bff8fb}
+    .dark-mode .language-switch button[disabled]{color:#083f43}
+
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-mini{grid-template-columns:1fr 1fr 1fr}
+      .b2b-grid{grid-template-columns:1fr 1fr}
+      .fleet-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 768px){
+      body{padding-top:76px}
+      header{position:fixed;left:0;right:0}
+      header .wrap{grid-template-columns:1fr;grid-template-areas:"logo utils" "contacts";padding:10px 0}
+      nav{display:none !important}
+      .hero-grid{padding:18px}
+      .section .panel{padding:18px}
+      .hero-title{font-size:32px}
+      .hero-mini{grid-template-columns:1fr}
+      .b2b-grid{grid-template-columns:1fr}
+      .fleet-card{grid-template-columns:1fr;gap:14px}
+      .fleet-name{font-size:22px}
+    }
+    @media (max-width: 480px){
+      .contact-row{flex-direction:column;align-items:stretch}
+      .chip{width:100%;justify-content:center}
+      .hero-actions{flex-direction:column}
+      .btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div id="top"></div>
+
+  <header>
+    <div class="container wrap">
+      <a href="#top" class="logo-text" aria-label="На главную viTour.bus">
+        <h1>viTour.bus</h1>
+        <span data-i18n="subtitle">Пассажирские перевозки • Трансферы</span>
+      </a>
+      <div class="header-right">
+        <div class="contact-row">
+          <a class="chip" href="tel:+380933142885">🇺🇦 +38 093 314 28 85</a>
+          <a class="chip" href="tel:+380987020220">🇺🇦 +38 098 702 02 20</a>
+          <a class="chip" href="tel:+37360577130">🇲🇩 +373 605 77 130</a>
+          <a class="chip" href="https://t.me/seredaa_v" target="_blank" rel="noopener noreferrer" data-i18n="tg.button" onclick="event.stopPropagation();">Написать в Telegram</a>
+          <a class="chip" href="https://www.instagram.com/vitour.bus/" target="_blank" rel="noopener noreferrer" data-i18n="ig.button" onclick="event.stopPropagation();">Instagram</a>
+        </div>
+        <nav role="navigation" aria-label="Главная навигация">
+          <a href="#top" data-i18n="nav.home">Главная</a>
+          <a href="#fleet" data-i18n="nav.fleet">Автопарк</a>
+          <a href="#services" data-i18n="nav.services">Услуги</a>
+          <a href="#booking" data-i18n="nav.booking">Бронирование</a>
+        </nav>
+        <div class="utils">
+          <div class="language-switch" role="group" aria-label="Смена языка">
+            <button id="btn-ru" type="button">Рус</button>
+            <button id="btn-uk" type="button">Укр</button>
+          </div>
+          <button id="themeToggle" type="button" aria-label="Переключить тему">◐</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="panel hero-grid">
+        <div>
+          <p class="kicker" data-i18n="hero.kicker">ТРАНСФЕРЫ • МЕЖГОРОД • АЭРОПОРТ</p>
+          <h2 class="hero-title" data-i18n="hero.title">viTour.bus — пассажирские перевозки 24/7</h2>
+          <p class="hero-sub" data-i18n="hero.sub">Седаны, минивэны, микроавтобусы и автобусы. Встреча с табличкой, багаж, детские кресла по запросу.</p>
+          <ul class="hero-points">
+            <li data-i18n="hero.p1">Быстрое бронирование</li>
+            <li data-i18n="hero.p2">Фиксированная цена до поездки</li>
+            <li data-i18n="hero.p3">Чистые авто и опытные водители</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="btn btn-primary-cta" href="tel:+380933142885" data-i18n="hero.call1">Позвонить UA</a>
+            <a class="btn btn-primary-cta" href="tel:+380987020220" data-i18n="hero.call2">Позвонить UA 2</a>
+            <a class="btn btn-primary-cta" href="tel:+37360577130" data-i18n="hero.call3">Позвонить MD</a>
+            <a class="btn btn-secondary-cta" href="#booking" data-i18n="hero.cta">Оставить заявку</a>
+          </div>
+          <div class="hero-badges">
+            <span class="badge" data-i18n="hero.b1">Одесса</span>
+            <span class="badge" data-i18n="hero.b2">Украина</span>
+            <span class="badge" data-i18n="hero.b3">Межгород</span>
+          </div>
+        </div>
+        <div class="hero-card-inner">
+          <h3 data-i18n="hero.cardTitle">Быстрый заказ</h3>
+          <p style="margin:0;opacity:.9" data-i18n="hero.cardSub">Напиши маршрут и время — ответим с ценой.</p>
+          <div class="hero-mini">
+            <a class="mini" href="#services" data-i18n="hero.m1">Услуги</a>
+            <a class="mini" href="#fleet" data-i18n="hero.m2">Автопарк</a>
+            <a class="mini" href="#booking" data-i18n="hero.m3">Форма</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="b2b">
+    <div class="container">
+      <div class="panel">
+        <p class="kicker" data-i18n="b2b.kicker">ДЛЯ БИЗНЕСА</p>
+        <h2 data-i18n="b2b.title">Развозка сотрудников для предприятий в Одессе и области</h2>
+        <p data-i18n="b2b.text">Организуем корпоративные пассажирские перевозки для офисов, складов, производств, магазинов и строительных объектов. Подбираем транспорт, маршрут и график под задачи вашей компании.</p>
+        <div class="b2b-grid">
+          <div class="b2b-item" data-i18n="b2b.f1">Работаем по договору</div>
+          <div class="b2b-item" data-i18n="b2b.f2">Безналичный расчет</div>
+          <div class="b2b-item" data-i18n="b2b.f3">Подача транспорта точно вовремя</div>
+          <div class="b2b-item" data-i18n="b2b.f4">Маршруты под сменный график</div>
+          <div class="b2b-item" data-i18n="b2b.f5">Микроавтобусы и автобусы</div>
+          <div class="b2b-item" data-i18n="b2b.f6">Работаем 24/7</div>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+          <a href="tel:+380933142885" class="btn btn-primary-cta" data-i18n="b2b.cta1">Получить предложение</a>
+          <a href="tel:+380933142885" class="btn btn-secondary-cta" data-i18n="b2b.cta2">Позвонить сейчас</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <section class="section" id="seo-text">
+    <div class="container">
+      <div class="panel">
+        <p class="kicker" data-i18n="kicker.seo">О нас</p>
+        <h2 data-i18n="seo.title">Трансферы и пассажирские перевозки по Украине и в Молдову</h2>
+        <p data-i18n="seo.p1">viTour.bus — это комфортные трансферы 24/7: городские поездки, межгород, встречи в аэропорту и поездки на отдых. Подбираем авто под задачу: седан, минивэн, микроавтобус или автобус. Цена фиксируется до выезда — без сюрпризов.</p>
+        <p data-i18n="seo.p2">Работаем по направлениям: Одесса и область, межгород по Украине, а также поездки в Молдову. Можно с багажом, детскими креслами и питомцами (по запросу) — просто укажите детали в заявке.</p>
+        <p style="margin:0" data-i18n="seo.p3">Чтобы узнать стоимость — оставьте заявку в форме ниже или напишите в Telegram: ответим с ценой и подтвердим бронь.</p>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <section class="section" id="fleet">
+      <div class="container">
+        <div class="panel">
+          <p class="kicker" data-i18n="kicker.fleet">Автопарк</p>
+          <h2 data-i18n="fleet.title">Перечень авто</h2>
+          <div class="fleet-grid">
+            <article class="fleet-card">
+              <div class="fleet-media"><img class="car-img" src="https://arttaxi.com.ua/wp-content/uploads/2025/01/standart.png" alt="Стандарт"></div>
+              <div>
+                <h3 class="fleet-name" data-i18n="fleet.std">СТАНДАРТ</h3>
+                <p class="fleet-models">Skoda Octavia · Volkswagen Jetta</p>
+                <div class="fleet-meta">
+                  <span class="fleet-pill">👤 3–4</span>
+                  <span class="fleet-pill">🧳 3–4</span>
+                </div>
+              </div>
+            </article>
+            <article class="fleet-card">
+              <div class="fleet-media"><img class="car-img" src="https://arttaxi.com.ua/wp-content/uploads/2025/01/miniven.png" alt="Минивен"></div>
+              <div>
+                <h3 class="fleet-name" data-i18n="fleet.minivan">МИНИВЕН</h3>
+                <p class="fleet-models">Mercedes V-Class · Mercedes Vito</p>
+                <div class="fleet-meta">
+                  <span class="fleet-pill">👤 8–10</span>
+                  <span class="fleet-pill">🧳 8–10</span>
+                </div>
+              </div>
+            </article>
+            <article class="fleet-card">
+              <div class="fleet-media"><img class="car-img" src="https://gettransfer.com/common/transport_types/minibus_small.png" alt="Микроавтобус"></div>
+              <div>
+                <h3 class="fleet-name" data-i18n="fleet.microbus">МИКРОАВТОБУС</h3>
+                <p class="fleet-models">Mercedes Sprinter</p>
+                <div class="fleet-meta">
+                  <span class="fleet-pill">👤 13–16</span>
+                  <span class="fleet-pill">🧳 8–10</span>
+                </div>
+              </div>
+            </article>
+            <article class="fleet-card">
+              <div class="fleet-media"><img class="car-img" src="https://gettransfer.com/common/transport_types/bus_small.png" alt="Автобус"></div>
+              <div>
+                <h3 class="fleet-name" data-i18n="fleet.bus">АВТОБУС</h3>
+                <p class="fleet-models">Mercedes Tourismo / аналог</p>
+                <div class="fleet-meta">
+                  <span class="fleet-pill">👤 50–55</span>
+                  <span class="fleet-pill">🧳 50–55</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-sep"></div>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="panel">
+          <p class="kicker" data-i18n="kicker.services">Услуги</p>
+          <h2 data-i18n="services.title">Наши услуги</h2>
+          <ul>
+            <li data-i18n="services.item1">🛫 Трансферы в аэропорт</li>
+            <li data-i18n="services.item2">🌆 Поездки по городу и за его пределами</li>
+            <li data-i18n="services.item3">🎉 Обслуживание мероприятий</li>
+            <li data-i18n="services.item4">🏖 Поездки на отдых</li>
+            <li data-i18n="services.item5">💍 Обслуживание свадеб</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-sep"></div>
+
+    <section class="section" id="booking">
+      <div class="container">
+        <div class="panel">
+          <p class="kicker" data-i18n="kicker.booking">Бронирование</p>
+          <h2 data-i18n="booking.title">Забронировать поездку</h2>
+          <form id="bookingForm" novalidate>
+            <label for="name" data-i18n="form.name">Имя</label>
+            <input id="name" name="name" type="text" placeholder="Имя" required data-i18n-placeholder="form.name">
+            <label for="phone" data-i18n="form.phone">Телефон</label>
+            <input id="phone" name="phone" type="tel" placeholder="Телефон" required data-i18n-placeholder="form.phone">
+            <label for="route" data-i18n="form.route">Маршрут (откуда — куда)</label>
+            <input id="route" name="route" type="text" placeholder="Маршрут (откуда — куда)" required data-i18n-placeholder="form.route">
+            <label for="comment" data-i18n="form.comment">Комментарий (дата, время, кол-во пассажиров)</label>
+            <textarea id="comment" name="comment" rows="3" placeholder="Комментарий (дата, время, кол-во пассажиров)" data-i18n-placeholder="form.comment"></textarea>
+            <button class="btn-primary" type="submit" data-i18n="form.submit">Отправить заявку</button>
+            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn-primary" type="button" id="sendTg" data-i18n="form.tgSend">Отправить в Telegram</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-sep"></div>
+
+    <section class="section faq" id="faq">
+      <div class="container">
+        <div class="panel">
+          <p class="kicker" data-i18n="kicker.faq">FAQ</p>
+          <h2 data-i18n="faq.title">Частые вопросы</h2>
+          <details class="item"><summary data-i18n="faq.q1">Как забронировать поездку?</summary><div class="content"><p data-i18n="faq.a1">Оставьте заявку через форму на сайте или напишите нам в Telegram. Мы подтвердим и пришлём цену.</p></div></details>
+          <details class="item"><summary data-i18n="faq.q2">Нужна ли предоплата?</summary><div class="content"><p data-i18n="faq.a2">Для дальних маршрутов возможна небольшая предоплата для фиксации авто. По городу — обычно без предоплаты.</p></div></details>
+          <details class="item"><summary data-i18n="faq.q3">Можно ли с багажом и животными?</summary><div class="content"><p data-i18n="faq.a3">Да. Укажите размер багажа и наличие питомцев в комментарии — подберём подходящее авто и условия.</p></div></details>
+          <details class="item"><summary data-i18n="faq.q4">Есть ли детские кресла?</summary><div class="content"><p data-i18n="faq.a4">По запросу предоставляем детские кресла/бустеры. Сообщите возраст ребёнка при оформлении.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-sep"></div>
+
+    <section class="section reviews" id="reviews">
+      <div class="container">
+        <div class="panel">
+          <p class="kicker" data-i18n="kicker.reviews">Отзывы</p>
+          <h2 data-i18n="reviews.title">Отзывы клиентов</h2>
+          <p data-i18n="reviews.item1">«Все понравилось, комфортно и вовремя!» — Елена</p>
+          <p data-i18n="reviews.item2">«Ездили в Болгарию — отличный сервис!» — Игорь</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="routes">
+      <div class="container">
+        <div class="panel">
+          <p class="kicker" data-i18n="kicker.routes">Маршруты</p>
+          <h2 data-i18n="routes.title">Популярные направления</h2>
+          <p style="margin-top:0" data-i18n="routes.sub">Часто заказывают трансферы и межгород. Оставьте заявку — рассчитаем стоимость под ваш маршрут.</p>
+          <ul style="margin:0; padding-left:18px; columns:2; column-gap:28px">
+            <li><a href="#booking" data-i18n="routes.r1">Одесса → Аэропорт (по запросу)</a></li>
+            <li><a href="#booking" data-i18n="routes.r2">Одесса → Киев</a></li>
+            <li><a href="#booking" data-i18n="routes.r3">Одесса → Львов</a></li>
+            <li><a href="#booking" data-i18n="routes.r4">Одесса → Днепр</a></li>
+            <li><a href="#booking" data-i18n="routes.r5">Одесса → Кишинёв (Молдова)</a></li>
+            <li><a href="#booking" data-i18n="routes.r6">Одесса → Болгария/Румыния (по запросу)</a></li>
+          </ul>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn btn-secondary-cta" href="#fleet" data-i18n="routes.cta1">Посмотреть автопарк</a>
+            <a class="btn btn-primary-cta" href="#booking" data-i18n="routes.cta2">Рассчитать цену</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container" data-i18n="footer">© 2025 viTour.bus — Все права защищены</div></footer>
+
+  <script>
+    const translations = {
       ru: {
         title:"viTour.bus — Пассажирские перевозки • Трансферы", subtitle:"Пассажирские перевозки • Трансферы",
         "nav.home":"Главная","nav.fleet":"Автопарк","nav.services":"Услуги","nav.booking":"Бронирование",
