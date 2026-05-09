@@ -10,6 +10,21 @@
 
   gtag('config', 'AW-18035187417');
 </script>
+  <!-- Event snippet for Google Ads conversion tracking -->
+<script>
+function gtag_report_conversion(url) {
+var callback = function () {
+if (typeof(url) !== 'undefined') {
+window.location = url;
+}
+};
+gtag('event', 'conversion', {
+'send_to': 'AW-18035187417/LFAVCNfC-qQcENm97JdD',
+'event_callback': callback
+});
+return false;
+}
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -314,11 +329,32 @@
       </a>
       <div class="header-right">
         <div class="contact-row">
-          <a class="chip" href="tel:+380933142885">🇺🇦 +38 093 314 28 85</a>
-          <a class="chip" href="tel:+380987020220">🇺🇦 +38 098 702 02 20</a>
-          <a class="chip" href="tel:+37360577130">🇲🇩 +373 605 77 130</a>
-          <a class="chip" href="https://t.me/seredaa_v" target="_blank" rel="noopener noreferrer" data-i18n="tg.button" onclick="event.stopPropagation();">Написать в Telegram</a>
-          <a class="chip" href="https://www.instagram.com/vitour.bus/" target="_blank" rel="noopener noreferrer" data-i18n="ig.button" onclick="event.stopPropagation();">Instagram</a>
+          <a class="chip" href="tel:+380933142885"
+onclick="return gtag_report_conversion('tel:+380933142885')"> +38 093
+314 28 85</a>
+<a class="chip" href="tel:+380987020220"
+onclick="return gtag_report_conversion('tel:+380987020220')"> +38 098
+702 02 20</a>
+<a class="chip" href="tel:+37360577130"
+onclick="return gtag_report_conversion('tel:+37360577130')">
+ +373 605 77 130</a>
+          <a class="chip"
+href="https://t.me/seredaa_v"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="tg.button"
+onclick="return gtag_report_conversion('https://t.me/seredaa_v');">
+ Написать в Telegram
+</a>
+          <a class="chip"
+href="https://www.instagram.com/vitour.bus/"
+target="_blank"
+rel="noopener noreferrer"
+data-i18n="ig.button"
+onclick="return gtag_report_conversion('https://www.instagram.com/
+vitour.bus/');">
+ Instagram
+</a>
         </div>
         <nav role="navigation" aria-label="Главная навигация">
           <a href="#top" data-i18n="nav.home">Главная</a>
@@ -350,9 +386,25 @@
             <li data-i18n="hero.p3">Чистые авто и опытные водители</li>
           </ul>
           <div class="hero-actions">
-            <a class="btn btn-primary-cta" href="tel:+380933142885" data-i18n="hero.call1">Позвонить UA</a>
-            <a class="btn btn-primary-cta" href="tel:+380987020220" data-i18n="hero.call2">Позвонить UA 2</a>
-            <a class="btn btn-primary-cta" href="tel:+37360577130" data-i18n="hero.call3">Позвонить MD</a>
+            <a class="btn btn-primary-cta"
+   href="tel:+380933142885"
+   onclick="return gtag_report_conversion('tel:+380933142885')"
+   data-i18n="hero.call1">Позвонить UA</a>
+
+<a class="btn btn-primary-cta"
+   href="tel:+380987020220"
+   onclick="return gtag_report_conversion('tel:+380987020220')"
+   data-i18n="hero.call2">Позвонить UA 2</a>
+
+<a class="btn btn-primary-cta"
+   href="tel:+37360577130"
+   onclick="return gtag_report_conversion('tel:+37360577130')"
+   data-i18n="hero.call3">Позвонить MD</a>
+
+<a class="btn btn-secondary-cta"
+   href="#booking"
+   onclick="gtag('event','conversion',{'send_to':'AW-18035187417/LFAVCNfC-qQcENm97JdD'});"
+   data-i18n="hero.cta">Оставить заявку</a>
             <a class="btn btn-secondary-cta" href="#booking" data-i18n="hero.cta">Оставить заявку</a>
           </div>
           <div class="hero-badges">
@@ -389,8 +441,15 @@
           <div class="b2b-item" data-i18n="b2b.f6">Работаем 24/7</div>
         </div>
         <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
-          <a href="tel:+380933142885" class="btn btn-primary-cta" data-i18n="b2b.cta1">Получить предложение</a>
-          <a href="tel:+380933142885" class="btn btn-secondary-cta" data-i18n="b2b.cta2">Позвонить сейчас</a>
+          <a href="tel:+380933142885"
+   class="btn btn-primary-cta"
+   onclick="return gtag_report_conversion('tel:+380933142885')"
+   data-i18n="b2b.cta1">Получить предложение</a>
+
+<a href="tel:+380933142885"
+   class="btn btn-secondary-cta"
+   onclick="return gtag_report_conversion('tel:+380933142885')"
+   data-i18n="b2b.cta2">Позвонить сейчас</a>
         </div>
       </div>
     </div>
@@ -552,8 +611,15 @@
             <li><a href="#booking" data-i18n="routes.r6">Одесса → Болгария/Румыния (по запросу)</a></li>
           </ul>
           <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
-            <a class="btn btn-secondary-cta" href="#fleet" data-i18n="routes.cta1">Посмотреть автопарк</a>
-            <a class="btn btn-primary-cta" href="#booking" data-i18n="routes.cta2">Рассчитать цену</a>
+            <a class="btn btn-secondary-cta"
+   href="#fleet"
+   onclick="gtag('event','conversion',{'send_to':'AW-18035187417/LFAVCNfC-qQcENm97JdD'});"
+   data-i18n="routes.cta1">Посмотреть автопарк</a>
+
+<a class="btn btn-primary-cta"
+   href="#booking"
+   onclick="gtag('event','conversion',{'send_to':'AW-18035187417/LFAVCNfC-qQcENm97JdD'});"
+   data-i18n="routes.cta2">Рассчитать цену</a>
           </div>
         </div>
       </div>
@@ -627,25 +693,40 @@
     if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
 
     document.getElementById('bookingForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert(document.documentElement.lang === 'uk'
-        ? 'Заявка заповнена. Додай свою відправку в Telegram або email.'
-        : 'Заявка заполнена. Добавь свою отправку в Telegram или email.');
-    });
+  e.preventDefault();
+
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18035187417/LFAVCNfC-qQcENm97JdD'
+  });
+
+  alert(document.documentElement.lang === 'uk'
+    ? 'Заявка заповнена. Додай свою відправку в Telegram або email.'
+    : 'Заявка заполнена. Добавь свою отправку в Telegram или email.');
+});
 
     document.getElementById('sendTg').addEventListener('click', () => {
-      const name = document.getElementById('name').value || '';
-      const phone = document.getElementById('phone').value || '';
-      const route = document.getElementById('route').value || '';
-      const comment = document.getElementById('comment').value || '';
-      const text =
-        (document.documentElement.lang === 'uk' ? 'Нова заявка' : 'Новая заявка') + '\n' +
-        (document.documentElement.lang === 'uk' ? 'Ім’я: ' : 'Имя: ') + name + '\n' +
-        (document.documentElement.lang === 'uk' ? 'Телефон: ' : 'Телефон: ') + phone + '\n' +
-        (document.documentElement.lang === 'uk' ? 'Маршрут: ' : 'Маршрут: ') + route + '\n' +
-        (document.documentElement.lang === 'uk' ? 'Коментар: ' : 'Комментарий: ') + comment;
-      window.open('https://t.me/seredaa_v?text=' + encodeURIComponent(text), '_blank', 'noopener');
-    });
+  const name = document.getElementById('name').value || '';
+  const phone = document.getElementById('phone').value || '';
+  const route = document.getElementById('route').value || '';
+  const comment = document.getElementById('comment').value || '';
+
+  const text =
+    (document.documentElement.lang === 'uk' ? 'Нова заявка' : 'Новая заявка') + '\n' +
+    (document.documentElement.lang === 'uk' ? 'Ім’я: ' : 'Имя: ') + name + '\n' +
+    (document.documentElement.lang === 'uk' ? 'Телефон: ' : 'Телефон: ') + phone + '\n' +
+    (document.documentElement.lang === 'uk' ? 'Маршрут: ' : 'Маршрут: ') + route + '\n' +
+    (document.documentElement.lang === 'uk' ? 'Коментар: ' : 'Комментарий: ') + comment;
+
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18035187417/LFAVCNfC-qQcENm97JdD'
+  });
+
+  window.open(
+    'https://t.me/seredaa_v?text=' + encodeURIComponent(text),
+    '_blank',
+    'noopener'
+  );
+});
   </script>
 
 </body>
